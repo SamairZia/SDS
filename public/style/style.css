@@ -47,7 +47,10 @@ input.input_fields {
     cursor: text;
     color: black;
   }
-  
+*:focus {
+    outline: none;
+}
+
 .form-input-name::before{
     content: "\f007";
     position: absolute;

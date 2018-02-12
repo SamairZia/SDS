@@ -11,4 +11,6 @@ app.route('/').get(function(req, res,next) {
     res.render('index',{TitlePage: 'Welcome to Shakir Dental Clinic'});
 });
 
-server.listen(3002);
+server.listen(3002, function(){
+	console.log('Server working...');
+});
