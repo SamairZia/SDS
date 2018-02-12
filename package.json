@@ -1,0 +1,25 @@
+{
+  "name": "sds",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SamairZia/sDs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SamairZia/sDs/issues"
+  },
+  "homepage": "https://github.com/SamairZia/sDs#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "hogan-express": "^0.5.2",
+    "mysql2": "^1.5.1"
+  }
+}
