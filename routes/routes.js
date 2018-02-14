@@ -5,5 +5,9 @@ module.exports = function(express, app){
 		res.render('index',{TitlePage: 'Welcome to Shakir Dental Clinic'});
 	})
 	
+	router.get('/main', function(req, res, next){
+		res.render('main',{TitlePage: 'Home Page'});
+	})
+	
 	app.use('/', router);
 }
