@@ -51,6 +51,7 @@ input.input_fields {
     outline: none;
 }
 
+
 .form-input-name::before{
     content: "\f007";
     position: absolute;

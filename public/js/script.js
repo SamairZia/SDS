@@ -59,3 +59,42 @@ y = n.getFullYear();
 m = n.getMonth() + 1;
 d = n.getDate();
 document.getElementById('dashDate').innerHTML = m + "/" + d + "/" + y ;
+
+// var go = document.getElementById('login');
+
+// go.onclick =  function(){
+//     onSubmitEventHandler();
+// }
+// login form onsubmit event function
+// function onSubmitEventHandler(){
+//     // document.getElementById('loginForm').onsubmit = function(){
+//         //checking all values are filled or not
+//         if (document.getElementById('userName').value == ""){
+//             alert("enter username");
+//             return false;
+//         }
+//         else {
+//             alert("done");
+//             return true;
+//         }
+//     }
+// } 
+
+function validateForm() {
+    var x = document.getElementById('userName').value;
+    var y = document.getElementById('userEmail').value;
+    var z = document.getElementById('userPass').value;
+    // var x = document.forms["loginform"]["uname"].value;
+    if (x == "" || y == "" || z == "") {
+        alert("All fileds must be filled out.");
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+
+
+// window.onload = function(){
+//     onSubmitEventHandler();
+// }
