@@ -89,7 +89,14 @@ function validateForm() {
         alert("All fileds must be filled out.");
         return false;
     }
-    else{
+    else {
+        var data = {"name": x ,"email": y , "pass": z};
+        var dataString = JSON.stringify(data);
+        localStorage.setItem("testing" , dataString);
+
+        var retrive = localStorage.getItem("testing");
+        var text = JSON.parse(retrive);
+        document.getElementById('temp').innerHTML = text.name;
         return true;
     }
 }

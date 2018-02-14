@@ -14,3 +14,4 @@ app.route('/').get(function(req, res,next) {
 server.listen(3002, function(){
 	console.log('Server working...');
 });
+
