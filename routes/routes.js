@@ -9,12 +9,12 @@ module.exports = function(express, app){
 	);
 	
 	router.get('/', function(req, res, next){
-		res.render('index',{TitlePage: 'Welcome to Shakir Dental Clinic'});
+		res.render('index',{titlePage: 'Welcome to Shakir Dental Clinic'});
 	})
 	
 	router.post('/login', function(req, res, next){
 		console.log(req.body.email);
-		res.render('main',{TitlePage: 'Home Page', user:req.body} );
+		res.render('main',{titlePage: 'Home Page', user:req.body} );
 	})
 	
 	app.use('/', router);
