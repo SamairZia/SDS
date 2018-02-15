@@ -92,11 +92,12 @@ function validateForm() {
     else {
         var data = {"name": x ,"email": y , "pass": z};
         var dataString = JSON.stringify(data);
-        localStorage.setItem("testing" , dataString);
-
-        var retrive = localStorage.getItem("testing");
-        var text = JSON.parse(retrive);
-        document.getElementById('temp').innerHTML = text.name;
+        //localStorage.setItem("testing" , dataString);
+        xmlhttp = new XMLHttpRequest();
+        
+        xmlhttp.open("POST" , "/logn" , true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send(dataString);
         return true;
     }
 }
