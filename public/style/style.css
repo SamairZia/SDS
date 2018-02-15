@@ -76,8 +76,8 @@ input.input_fields {
     font-size: 25px;
     font-family: "FontAwesome";
     color: #248c92;
-    padding-left: 10px;
-    padding-top: 2px;
+    padding-left: 12px;
+    padding-top: 5px;
 }
 
 button.btn_login { 
