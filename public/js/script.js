@@ -80,28 +80,23 @@ document.getElementById('dashDate').innerHTML = m + "/" + d + "/" + y ;
 //     }
 // } 
 
-// function validateForm() {
-//     var x = document.getElementById('userName').value;
-//     var y = document.getElementById('userEmail').value;
-//     var z = document.getElementById('userPass').value;
-//     // var x = document.forms["loginform"]["uname"].value;
-//     if (x == "" || y == "" || z == "") {
-//         alert("All fileds must be filled out.");
-//         return false;
-//     }
-//     else {
-//         var data = {"name": x ,"email": y , "pass": z};
-//         var dataString = JSON.stringify(data);
-//         localStorage.setItem("testing" , dataString);
+function validateForm() {
+    var x = document.getElementById('userName').value;
+    var y = document.getElementById('userEmail').value;
+    var z = document.getElementById('userPass').value;
+    // var x = document.forms["loginform"]["uname"].value;
+    if (x == "" || y == "" || z == "") {
+        alert("All fileds must be filled out.");
+        return false;
+    }
+    else {
+        var data = {"name": x ,"email": y , "pass": z};
+        var dataString = JSON.stringify(data);
+        localStorage.setItem("testing" , dataString);
 
-//         var retrive = localStorage.getItem("testing");
-//         var text = JSON.parse(retrive);
-//         document.getElementById('temp').innerHTML = text.name;
-//         return true;
-//     }
-// }
-
-
-// window.onload = function(){
-//     onSubmitEventHandler();
-// }
+        var retrive = localStorage.getItem("testing");
+        var text = JSON.parse(retrive);
+        document.getElementById('temp').innerHTML = text.name;
+        return true;
+    }
+}
