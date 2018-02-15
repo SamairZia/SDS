@@ -1,11 +1,12 @@
 module.exports = function(express, app){
-	var router = express.Router();
+	var router = express.Router(),
+		
 	
 	router.get('/', function(req, res, next){
 		res.render('index',{TitlePage: 'Welcome to Shakir Dental Clinic'});
 	})
 	
-	router.get('/main', function(req, res, next){
+	router.get('/login', function(req, res, next){
 		res.render('main',{TitlePage: 'Home Page'});
 	})
 	
