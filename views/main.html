@@ -25,7 +25,8 @@
     <a href="#" id="aDashboard"><i class="fa fa-home fa-3x" aria-hidden="true"></i><br/><strong>Dashboard</strong></a>
     <a href="#" id="aAppointment"><i class="fa fa-calendar fa-3x" aria-hidden="true"></i><br/><strong>Appointment</strong></a>
     <a href="#" id="aPatient"><i class="fa fa-users fa-3x" aria-hidden="true"></i><br/><strong>Patient</strong></a>
-    <a href="#" id="aTreatment"><i class="fa fa-plus-square fa-3x" aria-hidden="true"></i><br/><strong>Treatment</strong></a>
+    <a href="#" id="aTreatment"><i class="fa fa-plus-square fa-3x" aria-hidden="true"></i><br/><strong>Treatment</strong></a><br/>
+    <button type="button" class="btn btn-danger" id="btnLogout"><strong>Logout </strong> <i class="fa fa-sign-out" aria-hidden="true"></i></button>
     <!-- </div> -->
   </div>
 
@@ -33,6 +34,10 @@
   <div id="divDashboard" class="dashboard">
     <h1>Dashboard</h1>
     <marquee><h2 class="marqueeColor">Shakir Dental Surgery</h2></marquee><hr/>
+    <div class="row">
+      <div class="col-sm-3"><h4 class="dashUserDiv">Total Patients: </h4></div>
+      <div class="col-sm-3"><h4 class="dashUserDiv">Total Appointments: </h4></div>
+    </div>
     <div class="row">
       <div class="col-sm-3"><h4>Appointments Today</h4></div>
       <div class="col-sm-3"><h4 id="dashDate"></h4></div>
@@ -252,6 +257,10 @@
           </div>
           <div class="modal-body">
             <form id="add-appointment"><br/>
+              <div class="row">
+                <div class="col-sm-4"><label class="lab">Date:</label></div>
+                <div class="col-sm-6"><input class="form-control" type="date" name="appointmentDate" id="appointmentDate"/></div>
+              </div>
               <div class="row">
                 <div class="col-sm-4"><label class="lab">Patient Name:</label></div>
                 <div class="col-sm-6"><input class="form-control" type="text" name="patientName" id="patientName"/></div>

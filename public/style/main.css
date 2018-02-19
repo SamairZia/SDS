@@ -210,3 +210,12 @@ input.input_fields_forms {
     background-color: #248c92;
     color: white;
 } */
+
+.dashUserDiv {
+    /* width: 150px; */
+    height: 100px;
+    background-color: #f12e2e;
+    color: #000000;
+    padding-left: 2%;
+    padding-top: 2%;
+}
