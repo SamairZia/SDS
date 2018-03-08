@@ -22,17 +22,48 @@
 <body>
   <div class="sidenav">
     <!-- <div class="list-group"> -->
-    <a href="#" id="aDashboard"><i class="fa fa-home fa-3x" aria-hidden="true"></i><br/><strong>Dashboard</strong></a>
+    <a href="#" id="aDashboard"><i class="fa fa-home " style="color:white" aria-hidden="true"></i> Dashboard</a>
     <a href="#" id="aAppointment"><i class="fa fa-calendar fa-3x" aria-hidden="true"></i><br/><strong>Appointment</strong></a>
     <a href="#" id="aPatient"><i class="fa fa-users fa-3x" aria-hidden="true"></i><br/><strong>Patient</strong></a>
-    <a href="#" id="aTreatment"><i class="fa fa-plus-square fa-3x" aria-hidden="true"></i><br/><strong>Treatment</strong></a>
+    <a href="#" id="aTreatment"><i class="fa fa-plus-square fa-3x" aria-hidden="true"></i><br/><strong>Treatment</strong></a><br/>
     <!-- </div> -->
+  </div>
+  <!-- header  -->
+  <div class="headerbar">
+      <button type="button" class="btn btn-light" id="btnLogout"><strong>Logout </strong> <i class="fa fa-sign-out" aria-hidden="true"></i></button>
   </div>
 
   <!-- Dashboard content -->
   <div id="divDashboard" class="dashboard">
-    <h1>Dashboard</h1>
+    <!-- <h1 class="marqueecolor">Dashboard</h1> --><br/>
     <marquee><h2 class="marqueeColor">Shakir Dental Surgery</h2></marquee><hr/>
+    <div class="row">
+      <div class="col-sm-3"><h4 class="dashUserDiv">Total Patients : </h4></div>
+      <div class="col-sm-3"><h4 class="dashUserDiv">Total Appointments : </h4></div>
+      <div class="col-sm-3"><div class="card text-white bg-primary o-hidden">
+        <div class="card-body">
+        <div class="card-body-icon">
+      <i class="fa fa-fw fa-comments"></i>
+</div></div></div></div>
+    </div>
+    <div class="row">
+      <div class="col-xl-3 col-sm-6 mb-3">
+        <div class="card text-white bg-primary o-hidden">
+          <div class="card-body">
+            <div class="card-body-icon">
+              <i class="fa fa-fw fa-comments"></i>
+            </div>
+            <div class="mr-5">26 New Messages!</div>
+          </div>
+          <a class="card-footer text-white clearfix small z-1" href="#">
+            <span class="float-left">View Details</span>
+            <span class="float-right">
+              <i class="fa fa-angle-right"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
     <div class="row">
       <div class="col-sm-3"><h4>Appointments Today</h4></div>
       <div class="col-sm-3"><h4 id="dashDate"></h4></div>
@@ -55,7 +86,7 @@
 
   <!-- Patient content -->
   <div id="divPatient" class="patient">
-    <h1>Patient</h1>
+    <h1 class="marqueecolor">Patient</h1>
       <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add Patient</button> -->
       <!-- OWN model stuff starts -->
       <!-- Trigger/Open The Modal -->
@@ -241,7 +272,7 @@
 
     <!-- Appointment content -->
     <div id="divAppointment" class="appointment">
-      <h1>Appointment</h1>
+      <h1 class="marqueecolor">Appointment</h1>
       <button type="button" class="btn btn-danger" id="btnAddAppointment"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add Appointment</button>
 
       <div id="modalAppointment" class="modal">
@@ -252,6 +283,18 @@
           </div>
           <div class="modal-body">
             <form id="add-appointment"><br/>
+              <div class="row">
+                  <div class="col-sm-4"><label class="lab">Appointment No:</label></div>
+                  <div class="col-sm-2"><input class="form-control" type="int" name="pRegNo" id="pRegNo"/></div>
+                </div>
+              <div class="row">
+                <div class="col-sm-4"><label class="lab">Date:</label></div>
+                <div class="col-sm-6"><input class="form-control" type="date" name="appointmentDate" id="appointmentDate"/></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-4"><label class="lab">Reg. No:</label></div>
+                <div class="col-sm-6"><input class="form-control" type="int" name="pRegNo" id="pRegNo"/></div>
+              </div>
               <div class="row">
                 <div class="col-sm-4"><label class="lab">Patient Name:</label></div>
                 <div class="col-sm-6"><input class="form-control" type="text" name="patientName" id="patientName"/></div>
@@ -275,12 +318,30 @@
           </div>
         </div>
       </div>
-
     </div>
 
     <!-- Treatment content -->
     <div id="divTreatment" class="treatment">
-      <h1>Treatment</h1>
+      <h1 class="marqueecolor">Treatment</h1>
+      <br/>
+      <form>
+        <div class="row">
+          <div class="col-sm-2"><label class="lab">Reg. No:</label></div>
+          <div class="col-sm-3"><input class="form-control" type="int" name="pRegNoTreatment" id="pRegNoTreatment"/></div>
+        </div>
+        <div class="row">
+          <div class="col-sm-2"><label class="lab">Patient Name:</label></div>
+          <div class="col-sm-3"><input class="form-control" type="text" name="pNameTreatment" id="pNameTreatment"/></div>
+        </div>
+        <div class="row">
+          <div class="col-sm-2"><label class="lab">Treatment Details:</label></div>
+          <div class="col-sm-3"><textarea class="form-control" name="treatmentDetails" id="treatmentDetails"></textarea></div>
+        </div><br/>
+        <div class="row">
+          <div class="col-sm-2"><label class="lab"></label></div>
+          <div class="col-sm-3"><button type="button" class="btn btn-danger" name="btnAddTreatment" id="btnAddTreatment">Save</button></div>
+          </div>
+      </form>
     </div>
 
       <!-- scripts path-->
