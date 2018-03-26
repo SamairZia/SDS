@@ -18,8 +18,9 @@ app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized:true }
 app.use(passport.initialize());
 app.use(passport.session());
 
-//routes
-require('./routes/routes.js')(express, app, passport);
+//strategy
+require('./config/passport/passport.js')(passport, models.user);
+
 
 //Sync Database
 models.sequelize.sync().then(function() {
@@ -32,10 +33,9 @@ models.sequelize.sync().then(function() {
  
 });
 
-//strategy
-require('./config/passport/passport.js')(passport, models.user);
+//routes
+require('./routes/routes.js')(express, app, passport);
 
 server.listen(3000, function(){
     console.log('Server working...');
-    console.log('Mode ' + env);
 });

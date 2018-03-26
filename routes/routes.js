@@ -15,10 +15,26 @@ module.exports = function(express, app, passport)
 		res.render('index',{titlePage: 'Welcome to Shakir Dental Clinic'});
 	})
 	
+	router.get('/signup', function (req, res, next)
+	{
+		res.render('signup');
+	})
+	
+	router.get('/logout', function (req, res, next)
+	{
+		req.logout();
+		res.redirect('/');
+	})
+	
+	router.post('/signup', passport.authenticate('local-signup', 
+	{
+            successRedirect: '/main',
+            failureRedirect: '/signup'
+	}))
+	
 	router.post('/login', passport.authenticate('local-signin', 
 	{
             successRedirect: '/main',
- 
             failureRedirect: '/'
 	}))
 	
@@ -31,10 +47,12 @@ module.exports = function(express, app, passport)
 	{
         if (req.isAuthenticated()) 
 		{
+			console.log('Logged In');
 			next();
 		}
 		else 
 		{
+			console.log('NOT Logged In');
 			res.redirect('/');
 		}
     }

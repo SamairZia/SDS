@@ -4,20 +4,19 @@ var bCrypt = require('bcrypt-nodejs');
  
 module.exports = function(passport, user) {
  
- 
     var User = user;
  
     var LocalStrategy = require('passport-local').Strategy;
 	
 	//serialize
 	passport.serializeUser(function(user, done) {
-		done(null, user.username);
+		done(null, user.id);
 	});
 	
 	// deserialize user 
-	passport.deserializeUser(function(username, done) {
+	passport.deserializeUser(function(id, done) {
 	 
-		User.findById(username).then(function(user) {
+		User.findById(id).then(function(user) {
 	 
 			if (user) {
 	 
@@ -32,6 +31,77 @@ module.exports = function(passport, user) {
 		});
 	 
 	});
+	
+	
+	passport.use('local-signup', new LocalStrategy(
+	{
+
+		usernameField: 'username',
+
+		passwordField: 'password',
+
+		passReqToCallback: true // allows us to pass back the entire request to the callback
+ 
+    },
+	function(req, username, password, done)
+	{
+		var generateHash = function(password)
+		{
+			return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
+		};
+
+		User.findOne({
+			where: {
+				username: username
+			}
+		}).then(function(user) {
+
+			if (user)
+			{
+				return done(null, false, {
+					message: 'That username is already taken'
+				});
+
+			} else
+
+			{
+				var userPassword = generateHash(password);
+
+				var data =
+
+					{
+						username: username,
+
+						password: userPassword,
+
+						firstname: req.body.firstname,
+
+						lastname: req.body.lastname
+
+					};
+
+				User.create(data).then(function(newUser, created) {
+
+					if (!newUser) {
+
+						return done(null, false);
+
+					}
+
+					if (newUser) {
+
+						return done(null, newUser);
+
+					}
+
+				});
+
+			}
+
+		});
+
+	}));
+	
 	
 	//LOCAL SIGNIN
 	passport.use('local-signin', new LocalStrategy(
@@ -51,10 +121,9 @@ module.exports = function(passport, user) {
 	 
 			var User = user;
 	 
-			var isValidPassword = function(userpass, password) {
-	 
+			var isValidPassword = function(userpass, password) 
+			{
 				return bCrypt.compareSync(password, userpass);
-	 
 			}
 	 
 			User.findOne({
@@ -64,36 +133,35 @@ module.exports = function(passport, user) {
 			}).then(function(user) {
 	 
 				if (!user) {
-	 
+					console.log(username+' not found');
 					return done(null, false, {
 						message: 'Username does not exist'
 					});
-	 
 				}
 	 
-				if (!isValidPassword(user.password, password)) {
-	 
+				if (!isValidPassword(user.password, password)) {				
+					console.log(username+' password error');	 
 					return done(null, false, {
 						message: 'Incorrect password.'
-					});
+						
+					}
+					);
 	 
 				}
 	 
 				var userinfo = user.get();
 				return done(null, userinfo);
 	 
-	 
 			}).catch(function(err) {
-	 
+				console.log('Something went wrong with your Signin');
 				console.log("Error:", err);
 	 
 				return done(null, false, {
 					message: 'Something went wrong with your Signin'
-				});
+				}
+				);
 	 
 			});
-	 
-	 
 		}
 	 
 	)); 
