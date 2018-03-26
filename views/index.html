@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Bootstrap CDN link -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+
+    <!-- jQuery services link -->
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+
+    <!-- JQuery path -->
+    <script src="../js/jquery-3.3.1.min.js" ></script>
+
+    <!-- Js Bootstrap CDN link -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+
+    <!-- FontAwesome CDN link -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+
+    <!-- Bootstrap JS path -->
+    <script src="../style/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap CSS path -->
+    <link rel="stylesheet" href="../style/bootstrap/css/bootstrap.min.css" >
+
+    <!-- imported style.css -->
+    <link rel="stylesheet" href="../style/style.css" >
+
+    <!-- font-awesome.css path -->
+    <link rel="stylesheet" href="../style/font-awesome/css/font-awesome.css" >
+
+    <title>{{titlePage}}</title>
+</head>
+<body>
+    <div class="bg">
+        <form class="log-in" id="loginForm" name="loginform" action="/login" method="POST" onsubmit="return validateForm()">
+            <img src="../person.png" />
+            <br><br>
+            <div class="form-input-name">
+            <input class="input_fields" id="userName" name="uname" type="text" placeholder="User Name" />
+            </div><br>
+            <div class="form-input-email">
+            <input class="input_fields" id="userEmail" type="email" name="email" placeholder="Email" />
+            </div><br>
+            <div class="form-input-pass">
+            <input class="input_fields" id="userPass" type="password" name="pass" placeholder="Password" />
+            </div><br>
+            <button id="login" class="btn_login" type="submit" ></a>Log In</button><br><br><br><br>
+        </form>
+    </div>
+
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,383 @@
+<html lang="en">
+  <head>
+    <!-- font-awesome.css path -->
+    <link rel="stylesheet" href="../style/font-awesome/css/font-awesome.css">
+
+    <!-- JQuery path -->
+    <script src="../js/jquery-3.3.1.min.js" ></script>
+
+    <!-- Bootstrap JS path -->
+    <script src="../style/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap CSS path -->
+    <link rel="stylesheet" href="../style/bootstrap/css/bootstrap.min.css" >
+
+    <!-- imported main.css -->
+    <link rel="stylesheet" href="../style/main.css" >
+
+    <!-- imported style.css -->
+    <link rel="stylesheet" href="../style/style.css">
+    <title>{{titlePage}}</title>
+</head>
+<body>
+  <!-- header  -->
+  <div class="header">
+      <div class="logo">
+          <i class="fa fa-hospital-o"></i>
+          <span>SDS</span>
+      </div>
+      <button type="button" class="btn btn-light" id="btnLogout"><strong>Logout </strong> <i class="fa fa-sign-out" aria-hidden="true"></i></button>
+      <span class="uprofile"><i class="fa fa-user-circle fa-2x"></i><div class="tooltiptext">{{user.uname}}</div></span>
+      
+  </div>
+
+  <div class="side-nav">
+      <div class="logo">
+          <i class="fa fa-hospital-o"></i>
+          <span>SDS</span>
+      </div>
+    <ul>
+      <li>
+        <a href="#" id="aDashboard">
+        <span><i class="fa fa-home " aria-hidden="true"></i></span>
+        <span> Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" id="aAppointment">
+          <span><i class="fa fa-calendar " aria-hidden="true"></i></span>
+        <span> Appointment</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" id="aPatient">
+          <span><i class="fa fa-users " aria-hidden="true"></i></span>
+        <span> Patient</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" id="aTreatment">
+          <span><i class="fa fa-plus-square " aria-hidden="true"></i></span>
+        <span> Treatment</span>
+        </a>
+      </li>
+      <br/>
+    </ul>
+  </div><!--sidenav closing div -->
+  
+  <!-- Dashboard content -->
+  <div id="divDashboard" class="dashboard">
+    <!-- <h1 class="marqueecolor">Dashboard</h1> --><br/>
+    <marquee><h2 class="marqueeColor">Shakir Dental Surgery</h2></marquee><hr/>
+    <div class="row">
+      <div class="col-sm-3"><h4 class="dashUserDiv">Total Patients : </h4></div>
+      <div class="col-sm-3"><h4 class="dashUserDiv">Total Appointments : </h4></div>
+      <!-- <div class="col-sm-3"><div class="card text-white bg-primary o-hidden">
+        <div class="card-body">
+        <div class="card-body-icon">
+      <i class="fa fa-fw fa-comments"></i>
+</div></div></div></div> -->
+    </div>
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="card text-white bg-primary o-hidden">
+          <div class="card-body">
+            <!-- <div class="card-body-icon"> -->
+              <i class="fa fa-4x fa-comments float-right"></i>
+            <!-- </div> -->
+            <div class="mr-5">26 New Messages!</div>
+          </div>
+          <!-- <a class="card-footer text-white clearfix small z-1" href="#">
+            <span class="float-left">View Details</span>
+            <span class="float-right">
+              <i class="fa fa-angle-right"></i>
+            </span>
+          </a> -->
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3"><h4>Appointments Today</h4></div>
+      <div class="col-sm-3"><h4 id="dashDate"></h4></div>
+    </div><br/>
+    <table >
+      <tr>
+        <th>Patient's Name</th>
+        <th>Appointment Time</th> 
+      </tr>
+      <tr>
+        <td>{{user.uname}}</td>
+        <td>{{user.email}}</td> 
+      </tr>
+      <tr>
+        <td>Eve</td>
+        <td>Jackson</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Patient content -->
+  <div id="divPatient" class="patient">
+    <h1 class="marqueecolor">Patient</h1>
+      <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add Patient</button> -->
+      <!-- OWN model stuff starts -->
+      <!-- Trigger/Open The Modal -->
+      <div class="row">
+        <div class="col-sm-2">
+        <button type="button" class="btn btn-danger" id="myBtn"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add Patient</button>
+        </div>
+        <div class="col-sm-4">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Search patient..." aria-describedby="basic-addon2"><button class="btn btn-info" type="button" id="searchPatient"><i class="fa fa-search fa-fw" aria-hidden="true"></i></button>
+        </div>
+        </div>
+      </div>
+      <!-- Search Result data -->
+      <div id="searchResult">
+        <table>
+          <tr>
+            <td>Joining Date:</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Reg. No.</td>
+            <td></td>
+          </tr> 
+          <tr>
+            <td>Name:</td>
+            <td></td>
+          </tr> 
+          <tr>
+            <td>Parent Name:</td>
+            <td></td>
+          </tr> 
+          <tr>
+            <td>House Address:</td>
+            <td>ABC street House # 123 xyz area khi</td>
+          </tr> 
+          <tr>
+            <td>Work Address:</td>
+            <td></td>
+          </tr> 
+          <tr>
+            <td>Marital Status:</td>
+            <td></td>
+          </tr> 
+          <tr>
+            <td>Occupation:</td>
+            <td></td>
+          </tr> 
+          <tr>
+            <td>Tel:</td>
+            <td></td>
+          </tr> 
+          <tr>
+            <td>Refrence:</td>
+            <td></td>
+          </tr> 
+          <tr>
+            <td>Age:</td>
+            <td></td>
+          </tr> 
+          <tr>
+            <td>Sex:</td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Add Patient Modal -->
+      <div id="myModal" class="modal">
+      <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Add Patient</h4>                    
+              <span class="close">&times;</span>
+          </div>
+          <div class="modal-body">
+            <form id="add-patient" method="POST" action="">
+              <div class="row">
+                <div class="col-sm-3"><label class="lab">Date:</label></div>
+                <div class="col-sm-6"><input class="form-control" type="date" name="date" id="date"/></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3"><label class="lab">Name:</label></div>
+                <div class="col-sm-6"><input class="form-control" type="text" name="name" id="name"/></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3"><label class="lab">Parent Name:</label></div>
+                <div class="col-sm-6"><input class="form-control" type="text" name="pname" id="pname"/></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3"><label class="lab">House Address:</label></div>
+                <div class="col-sm-6"><input class="form-control" type="text" name="houseaddress" id="houseaddress"/></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3"><label class="lab">Work Address:</label></div>
+                <div class="col-sm-6"><input class="form-control" type="text" name="workaddress" id="workaddress"/></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3"><label class="lab">Marital Status:</label></div>
+                <div class="col-sm-6"><input class="form-control" type="text" name="mstatus" id="mstatus"/></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3"><label class="lab">Occupation:</label></div>
+                <div class="col-sm-6"><input class="form-control" type="text" name="occupation" id="occupation"/></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3"><label class="lab">Tel:</label></div>
+                <div class="col-sm-6"><input class="form-control" type="tel" name="tel" id="tel"/></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3"><label class="lab">Reference:</label></div>
+                <div class="col-sm-6"><input class="form-control" type="text" name="refrence" id="refrence"/></div>
+              </div>
+              <div class="row">              
+              <div class="col-sm-2">Age:<input class="form-control" type="text" name="age" id="age"/></div>
+              <div class="col-sm-1"></div>
+              <div class="col-sm-2">Sex:<input class="form-control" type="text" placeholder="M/F" name="sex" id="sex"/></div>
+              <div class="col-sm-1"></div>
+              <div class="col-sm-2">Reg. No.<input class="form-control" type="text" name="regNo" id="regNo"/></div>
+              </div>
+              <hr>
+              <h5>Patient Health Questionnaire</h5>
+              <h6><b><u>Personal Habits</u></b></h6>
+              <div class="row">
+                <div class="col-sm-3"><input type="checkbox" name="smoking" />Smoking</div>
+                <div class="col-sm-3"><input type="checkbox" name="tobacco"/>Tobacco</div>
+                <div class="col-sm-3"><input type="checkbox" name="betelNuts"/>Betel Nuts</div>
+                <div class="col-sm-3"><input type="checkbox" name="alcohol"/>Alcohol</div>
+              </div><br>
+              <h6><b><u>Medical Profile</u></b></h6>
+              <div class="row">
+                <div class="col-sm-4"><input type="checkbox" name="diabetes"/>Diabetes Mellitus</div>
+                <div class="col-sm-4"><input type="checkbox" name="pepticUlcer"/>Peptic Ulcer</div>
+                <div class="col-sm-4"><input type="checkbox" name="hypertension"/>Hypertension</div>
+              </div>
+              <div class="row">
+                <div class="col-sm-4"><input type="checkbox" name="asthma"/>Asthma</div>
+                <div class="col-sm-4"><input type="checkbox" name="tuberculosis"/>Tuberculosis</div>
+                <div class="col-sm-4"><input type="checkbox" name="hepatitis"/>Hepatitis</div>
+              </div>
+              <div class="row">
+                <div class="col-sm-4"><input type="checkbox" name="thyroidDisorder"/>Thyroid Disorder</div>
+                <div class="col-sm-4"><input type="checkbox" name="renalDisease"/>Renal Disease</div>
+                <div class="col-sm-4"><input type="checkbox" name="skinDisease"/>Skin Disease </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-4"><input type="checkbox" name="bleedingDisorder"/>Bleeding Disorder</div>
+                <div class="col-sm-4"><input type="checkbox" name="ischemicHeartDisease"/>Ischemic Heart Disease</div>
+                <div class="col-sm-4"><input type="checkbox" name="valvularHeartDisease"/>Valvular Heart Disease</div>
+              </div>
+              <div class="row">
+                <div class="col-sm-7"><input type="checkbox"/>Previous Hospitalization:(Reason)<textarea class="form-control" name="reason" cols="30"></textarea></div>
+                <!-- <div class="col-sm-4"><textarea cols="30"></textarea></div> -->
+              </div><br>
+              <h6><b><u>Allergies</u></b></h6>
+              <div class="row">
+                <div class="col-sm-3"><input type="checkbox" name="penicillin"/>Penicillin/Sulfa Drug</div>
+                <div class="col-sm-3"><input type="checkbox" name="anesthesia"/>Anesthesia</div>
+                <div class="col-sm-3"><input type="checkbox" name="aspirin"/>Aspirin</div>
+                <div class="col-sm-3"><input type="checkbox" name="latexProduct"/>Latex Product</div>
+              </div><br>
+              <h6><b><u>Family History</u></b></h6>
+              <div class="row">
+                <div class="col-sm-3"><input type="checkbox" name="diabetes"/>Diabetes</div>
+                <div class="col-sm-3"><input type="checkbox" name="hypertension"/>Hypertension</div>
+                <div class="col-sm-3"><input type="checkbox" name="ischemicHeartDisease"/>Ischemic Heart Disease</div>
+                <div class="col-sm-3"><input type="checkbox" name="bleedingDisorder"/>Bleeding Disorder</div>
+              </div><br>
+              <h6><b><u>For Females Only</u></b></h6>
+              <div class="row">
+                <div class="col-sm-3"><input type="checkbox" name="pregnancy"/>Pregnancy</div>
+                <div class="col-sm-3"><input type="checkbox" name="breastFeeding"/>Breast Feeding</div>
+              </div><br>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Add Patient</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- own model stuff ends -->
+
+    <!-- Appointment content -->
+    <div id="divAppointment" class="appointment">
+      <h1 class="marqueecolor">Appointment</h1>
+      <button type="button" class="btn btn-danger" id="btnAddAppointment"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add Appointment</button>
+
+      <div id="modalAppointment" class="modal">
+        <div class="modal-content-appointment">
+          <div class="modal-header">
+            <h4 class="modal-title">Add Appointment</h4>
+              <span class="closeAppointment">&times;</span>
+          </div>
+          <div class="modal-body">
+            <form id="add-appointment"><br/>
+              <div class="row">
+                  <div class="col-sm-4"><label class="lab">Appointment No:</label></div>
+                  <div class="col-sm-2"><input class="form-control" type="int" name="pRegNo" id="pRegNo"/></div>
+                </div>
+              <div class="row">
+                <div class="col-sm-4"><label class="lab">Date:</label></div>
+                <div class="col-sm-6"><input class="form-control" type="date" name="appointmentDate" id="appointmentDate"/></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-4"><label class="lab">Reg. No:</label></div>
+                <div class="col-sm-6"><input class="form-control" type="int" name="pRegNo" id="pRegNo"/></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-4"><label class="lab">Patient Name:</label></div>
+                <div class="col-sm-6"><input class="form-control" type="text" name="patientName" id="patientName"/></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-4"><label class="lab">Start Time:</label></div>
+                <div class="col-sm-6"><input class="form-control" type="text" name="startTime" id="startTime"/></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-4"><label class="lab">End Time:</label></div>
+                <div class="col-sm-6"><input class="form-control" type="text" name="endTime" id="endTime"/></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-4"><label class="lab">Comments:</label></div>
+                <div class="col-sm-6"><textarea class="form-control" name="endTime" id="endTime"></textarea></div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Add Appointment</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Treatment content -->
+    <div id="divTreatment" class="treatment">
+      <h1 class="marqueecolor">Treatment</h1>
+      <br/>
+      <form>
+        <div class="row">
+          <div class="col-sm-2"><label class="lab">Reg. No:</label></div>
+          <div class="col-sm-3"><input class="form-control" type="int" name="pRegNoTreatment" id="pRegNoTreatment"/></div>
+        </div>
+        <div class="row">
+          <div class="col-sm-2"><label class="lab">Patient Name:</label></div>
+          <div class="col-sm-3"><input class="form-control" type="text" name="pNameTreatment" id="pNameTreatment"/></div>
+        </div>
+        <div class="row">
+          <div class="col-sm-2"><label class="lab">Treatment Details:</label></div>
+          <div class="col-sm-3"><textarea class="form-control" name="treatmentDetails" id="treatmentDetails"></textarea></div>
+        </div><br/>
+        <div class="row">
+          <div class="col-sm-2"><label class="lab"></label></div>
+          <div class="col-sm-3"><button type="button" class="btn btn-danger" name="btnAddTreatment" id="btnAddTreatment">Save</button></div>
+          </div>
+      </form>
+    </div>
+
+      <!-- scripts path-->
+      <script src="../js/modal.js"></script>
+      <script src="../js/script.js"></script>
+</body>
+</html>
