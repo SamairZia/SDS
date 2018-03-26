@@ -12,7 +12,12 @@ module.exports = function(express, app, passport)
 	
 	router.get('/', function(req, res, next)
 	{
-		res.render('index',{titlePage: 'Welcome to Shakir Dental Clinic'});
+		if(req.isAuthenticated())
+		{
+			res.redirect('/main');
+		}
+		else
+			res.render('index',{titlePage: 'Welcome to Shakir Dental Clinic'});
 	})
 	
 	router.get('/signup', function (req, res, next)
@@ -28,14 +33,14 @@ module.exports = function(express, app, passport)
 	
 	router.post('/signup', passport.authenticate('local-signup', 
 	{
-            successRedirect: '/main',
-            failureRedirect: '/signup'
+		successRedirect: '/main',
+		failureRedirect: '/signup'
 	}))
 	
 	router.post('/login', passport.authenticate('local-signin', 
 	{
-            successRedirect: '/main',
-            failureRedirect: '/'
+		successRedirect: '/main',
+		failureRedirect: '/'
 	}))
 	
 	router.get('/main', isLoggedIn, function(req, res, next)
