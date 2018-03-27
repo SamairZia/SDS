@@ -9,7 +9,6 @@ module.exports = function(express, app, passport)
 		extended: true
 	}));
 
-	
 	router.get('/', function(req, res, next)
 	{
 		if(req.isAuthenticated())
