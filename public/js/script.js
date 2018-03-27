@@ -85,7 +85,7 @@ function validateForm() {
     var y = document.getElementById('userEmail').value;
     var z = document.getElementById('userPass').value;
     // var x = document.forms["loginform"]["uname"].value;
-    if (x == "" || y == "" || z == "") {
+    if (x == "" || z == "") {
         alert("All fileds must be filled out.");
         return false;
     }
