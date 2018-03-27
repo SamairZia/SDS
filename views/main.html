@@ -28,7 +28,6 @@
       </div>
       <button type="button" class="btn btn-light" id="btnLogout"><strong>Logout </strong> <i class="fa fa-sign-out" aria-hidden="true"></i></button>
       <span class="uprofile"><i class="fa fa-user-circle fa-2x"></i><div class="tooltiptext">{{user.uname}}</div></span>
-      
   </div>
 
   <div class="side-nav">
@@ -354,8 +353,8 @@
 
     <!-- Treatment content -->
     <div id="divTreatment" class="treatment">
-      <h1 class="marqueecolor">Treatment</h1>
-      <br/>
+      <!-- <h1 class="marqueecolor">Treatment</h1>
+      <br/> -->
 
       <div class="row">
         <div class="col-sm-6">
@@ -364,6 +363,14 @@
               <h5>Treatment</h5>
             </div>
             <div class="card-body">
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">Reg. No:</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                  </div>
+
               <div class="row">
                 <div class="col-sm-3"><label class="lab">Reg. No:</label></div>
                 <div class="col-sm-5"><input class="form-control" type="int" name="pRegNoTreatment" id="pRegNoTreatment"/></div>
