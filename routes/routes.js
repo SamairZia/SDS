@@ -42,7 +42,7 @@ module.exports = function(express, app, passport)
 		failureRedirect: '/'
 	}))
 	
-	router.get('/main', isLoggedIn, function(req, res, next)
+	router.get('/main', function(req, res, next)
 	{
 		res.render('main',{titlePage: 'Home Page', user:req.body});
 	})
