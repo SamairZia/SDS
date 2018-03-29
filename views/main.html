@@ -323,7 +323,7 @@
               <span class="closeAppointment">&times;</span>
           </div>
           <div class="modal-body">
-            <form id="add-appointment"><br/>
+            <form id="add-appointment" method="POST"><br/>
               <div class="row">
                   <div class="col-sm-4"><label class="lab">Appointment No:</label></div>
                   <div class="col-sm-2"><input class="form-control" type="int" name="pRegNo" id="pRegNo"/></div>
@@ -348,11 +348,11 @@
                 <div class="col-sm-4"><label class="lab">Comments:</label></div>
                 <div class="col-sm-6"><textarea class="form-control" name="endTime" id="endTime"></textarea></div>
               </div>
-            </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal">Add Appointment</button>
           </div>
+        </form>          
         </div>
       </div>
     </div>
@@ -369,6 +369,7 @@
               <h3>Treatment</h3>
             </div>
             <div class="card-body">
+              <form id="add-treatment" method="POST" action="" >
               <div class="row">
                 <div class="col-sm-5"><label class="lab">Reg. No:</label></div>
                 <div class="col-sm-7"><input class="form-control" type="int" name="pRegNoTreatment" id="pRegNoTreatment"/></div>
@@ -399,6 +400,7 @@
               </div>
               <a href="#" type="button" class="btn btn-primary" name="btnAddTreatment" id="btnAddTreatment" style="margin-left:44%;margin-top:3%" >Save</a>
             </div>
+          </form>
           </div>
         </div>
       </div>
