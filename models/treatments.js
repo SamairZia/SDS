@@ -1,18 +1,27 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('treatment', {
-    tno: {
+  return sequelize.define('treatments', {
+    trno: {
       type: DataTypes.INTEGER(11).UNSIGNED,
-      allowNull: false
+      allowNull: false,
+      primaryKey: true
     },
     appno: {
       type: DataTypes.INTEGER(11).UNSIGNED,
-      allowNull: true
+      allowNull: true,
+      references: {
+        model: 'appointment',
+        key: 'appno'
+      }
     },
     regno: {
       type: DataTypes.INTEGER(11).UNSIGNED,
-      allowNull: false
+      allowNull: false,
+      references: {
+        model: 'patients',
+        key: 'regno'
+      }
     },
     date: {
       type: DataTypes.DATEONLY,
@@ -25,12 +34,8 @@ module.exports = function(sequelize, DataTypes) {
     cost: {
       type: DataTypes.INTEGER(11).UNSIGNED,
       allowNull: true
-    },
-    paid: {
-      type: DataTypes.INTEGER(11).UNSIGNED,
-      allowNull: true
     }
   }, {
-    tableName: 'treatment'
+    tableName: 'treatments'
   });
 };

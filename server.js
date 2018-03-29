@@ -4,7 +4,9 @@ var express = require('express'),
 	path = require('path'),
 	env = require('dotenv').load(),
 	session = require('express-session'),
-	passport = require('passport');
+	passport = require('passport'),
+	bodyParser = require('body-parser')
+	
 
 //Models
 var models = require("./models");
@@ -17,24 +19,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized:true })); // session secret
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(bodyParser.json());
+	app.use(bodyParser.urlencoded(
+	{
+		extended: true
+	}));
 
 //strategy
-require('./config/passport/passport.js')(passport, models.user);
-
-
-//Sync Database
-models.sequelize.sync().then(function() {
- 
-    console.log('Nice! Database looks fine')
- 
-}).catch(function(err) {
- 
-    console.log(err, "Something went wrong with the Database Update!")
- 
-});
+require('./config/passport/passport.js')(passport, models.users);
 
 //routes
-require('./routes/routes.js')(express, app, passport);
+require('./routes/routes.js')(express, app, passport, models);
 
 server.listen(3000, function(){
     console.log('Server working...');
