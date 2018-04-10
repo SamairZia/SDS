@@ -142,6 +142,8 @@
         </div>
       </div>
       <!-- Search Result data -->
+      <div class="row">
+        <div class="col-sm-5">
       <div id="searchResult">
         <table>
           <tr>
@@ -162,7 +164,7 @@
           </tr> 
           <tr>
             <td>House Address:</td>
-            <td>ABC street House # 123 xyz area khi</td>
+            <td>ABC street House # 123 xyz area karachi</td>
           </tr> 
           <tr>
             <td>Work Address:</td>
@@ -194,6 +196,18 @@
           </tr>
         </table>
       </div>
+    </div>
+    <div class="col-sm-5">
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title">
+            Appointment History
+          </div>
+          History goes here.
+        </div>
+      </div>
+    </div>
+    </div> <!--Row div close -->
 
       <!-- Add Patient Modal -->
       <div id="myModal" class="modal">
@@ -227,7 +241,13 @@
               </div>
               <div class="row">
                 <div class="col-sm-3"><label class="lab">Marital Status:</label></div>
-                <div class="col-sm-6"><input class="form-control" type="text" name="mstatus" id="mstatus"/></div>
+                <div class="col-sm-6">
+                    <!-- <input class="form-control" type="text" name="mstatus" id="mstatus"/> -->
+                <select class="custom-select" name="mstatus" id="mstatus">
+                  <option selected>Select...</option>
+                  <option value="1">Married</option>
+                  <option value="2">Unmarried</option>
+                </select></div>
               </div>
               <div class="row">
                 <div class="col-sm-3"><label class="lab">Occupation:</label></div>
@@ -244,7 +264,12 @@
               <div class="row">              
               <div class="col-sm-2">Age:<input class="form-control" type="text" name="age" id="age"/></div>
               <div class="col-sm-1"></div>
-              <div class="col-sm-2">Sex:<input class="form-control" type="text" placeholder="M/F" name="sex" id="sex"/></div>
+              <div class="col-sm-2">Sex: <select class="custom-select" name="sex" id="sex">
+                  <option selected>Select..</option>
+                  <option value="1">M</option>
+                  <option value="2">F</option>
+                </select></div>
+                <!-- <input class="form-control" type="text" placeholder="M/F" name="sex" id="sex"/> -->
               <div class="col-sm-1"></div>
               <div class="col-sm-2">Reg. No.<input class="form-control" type="text" name="regNo" id="regNo"/></div>
               </div>
