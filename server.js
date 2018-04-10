@@ -29,7 +29,8 @@ app.use(bodyParser.json());
 require('./config/passport/passport.js')(passport, models.users);
 
 //routes
-require('./routes/routes.js')(express, app, passport, models);
+require('./routes/auth.js')(express, app, passport);
+require('./routes/patient.js')(express, app, models.patients);
 
 server.listen(3000, function(){
     console.log('Server working...');

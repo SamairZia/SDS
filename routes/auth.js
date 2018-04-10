@@ -1,4 +1,4 @@
-module.exports = function(express, app, passport, models)
+module.exports = function(express, app, passport)
 {
 	var router = express.Router(),
 		authcontroller = require('../controllers/authcontroller.js')
@@ -48,4 +48,6 @@ module.exports = function(express, app, passport, models)
 			res.redirect('/');
 		}
     }
+	
+	app.use('/', router);
 }
