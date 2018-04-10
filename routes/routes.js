@@ -1,14 +1,8 @@
-module.exports = function(express, app, passport)
+module.exports = function(express, app, passport, models)
 {
 	var router = express.Router(),
-		bodyParser = require('body-parser')
-	
-	app.use(bodyParser.json());
-	app.use(bodyParser.urlencoded(
-	{
-		extended: true
-	}));
-
+		authcontroller = require('../controllers/authcontroller.js')
+		
 	router.get('/', function(req, res, next)
 	{
 		if(req.isAuthenticated())
@@ -19,16 +13,13 @@ module.exports = function(express, app, passport)
 			res.render('index',{titlePage: 'Welcome to Shakir Dental Clinic'});
 	})
 	
-	router.get('/signup', function (req, res, next)
-	{
-		res.render('signup');
-	})
-	
 	router.get('/logout', function (req, res, next)
 	{
 		req.logout();
 		res.redirect('/');
 	})
+	
+	router.get('/signup', authcontroller.signup)
 	
 	router.post('/signup', passport.authenticate('local-signup', 
 	{
@@ -42,10 +33,7 @@ module.exports = function(express, app, passport)
 		failureRedirect: '/'
 	}))
 	
-	router.get('/main', function(req, res, next)
-	{
-		res.render('main',{titlePage: 'Home Page', user:req.body});
-	})
+	router.get('/main', isLoggedIn, authcontroller.login)
 	
 	function isLoggedIn(req, res, next) 
 	{
@@ -60,6 +48,4 @@ module.exports = function(express, app, passport)
 			res.redirect('/');
 		}
     }
-		
-	app.use('/', router);
 }

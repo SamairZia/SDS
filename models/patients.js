@@ -43,6 +43,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(50),
       allowNull: true
     },
+    balance: {
+      type: DataTypes.INTEGER(11).UNSIGNED,
+      allowNull: true
+    },
     occupation: {
       type: DataTypes.STRING(50),
       allowNull: true
