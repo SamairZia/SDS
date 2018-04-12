@@ -87,6 +87,7 @@ function validateForm() {
     // var x = document.forms["loginform"]["uname"].value;
     if (x == "" || z == "") {
         alert("All fileds must be filled out.");
+        document.getElementById("errorLogin").innerHTML = "All fields must be filled out!"
         return false;
     }
     else {
@@ -98,6 +99,11 @@ function validateForm() {
         xmlhttp.open("POST" , "/logn" , true);
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xmlhttp.send(dataString);
+        document.getElementById("errorLogin").innerHTML = ""        
         return true;
     }
+}
+
+function btnAddPatient(){
+    alert("Done");
 }

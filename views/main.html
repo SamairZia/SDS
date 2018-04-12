@@ -218,7 +218,7 @@
               <span class="close">&times;</span>
           </div>
           <div class="modal-body">
-            <form id="add-patient" method="POST" action="/patients/add">
+            <form id="add-patient" method="POST" action="/patients/add" >
               <div class="row">
                 <div class="col-sm-3"><label class="lab">Date:</label></div>
                 <div class="col-sm-6"><input class="form-control" type="date" name="date" id="date"/></div>
@@ -328,7 +328,7 @@
               </div><br>
           </div>
           <div class="modal-footer">
-            <button type="submit"  class="btn btn-danger" data-dismiss="modal">Add Patient</button>
+            <button type="submit"  class="btn btn-danger" data-dismiss="modal" onclick="return btnAddPatient()">Add Patient</button>
           </div>
         </form>          
         </div>
