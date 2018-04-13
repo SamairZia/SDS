@@ -104,6 +104,16 @@ function validateForm() {
     }
 }
 
-function btnAddPatient(){
-    alert("Done");
+var submitAddPatient = document.getElementById('btnSubmitAddPatient');
+var successAddPatient = document.getElementById('successModal');
+var closeModalAddPatient = document.getElementById('myModal');
+
+submitAddPatient.onclick = function(e){
+    e.preventDefault();
+    successAddPatient.style.display = "block";
+    closeModalAddPatient.style.display = "none";
 }
+
+// function btnAddPatient(){
+//     alert("Done");
+// }

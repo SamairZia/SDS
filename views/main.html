@@ -141,6 +141,19 @@
         </div>
         </div>
       </div>
+      
+      <!-- success alert afetr submitting Add Patient from modal -->
+      <!-- The Modal -->
+      <div id="successModal" class="modalSuccessModal">
+        <!-- Modal content -->
+        <div class="modal-contentSuccessModal">
+        <span class="closeSuccessModal">&times;</span>
+        <div class="alert alert-success" style="margin-right: 20px" role="alert">
+          <strong> You have succesfully added patient :p </strong>
+        </div>
+        </div>
+      </div>
+
       <!-- Search Result data -->
       <div class="row">
         <div class="col-sm-5">
@@ -215,10 +228,10 @@
         <div class="modal-content">
           <div class="modal-header">
             <h4 class="modal-title">Add Patient</h4>                    
-              <span class="close">&times;</span>
+              <span class="closePatient">&times;</span>
           </div>
           <div class="modal-body">
-            <form id="add-patient" method="POST" action="/patients/add" >
+            <form id="add-patient" method="POST" action="" >
               <div class="row">
                 <div class="col-sm-3"><label class="lab">Date:</label></div>
                 <div class="col-sm-6"><input class="form-control" type="date" name="date" id="date"/></div>
@@ -328,7 +341,7 @@
               </div><br>
           </div>
           <div class="modal-footer">
-            <button type="submit"  class="btn btn-danger" data-dismiss="modal" onclick="return btnAddPatient()">Add Patient</button>
+            <button type="submit" id="btnSubmitAddPatient"class="btn btn-danger" data-dismiss="modal" >Add Patient</button>
           </div>
         </form>          
         </div>
@@ -388,7 +401,7 @@
       <br/> -->
 
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-12">
           <div class="card">
             <div class="card-header">
               <h3>Treatment</h3>
@@ -396,34 +409,34 @@
             <div class="card-body">
               <form id="add-treatment" method="POST" action="" >
               <div class="row">
-                <div class="col-sm-5"><label class="lab">Reg. No:</label></div>
-                <div class="col-sm-7"><input class="form-control" type="int" name="pRegNoTreatment" id="pRegNoTreatment"/></div>
+                <div class="col-sm-2"><label class="lab">Reg. No:</label></div>
+                <div class="col-sm-2"><input class="form-control" type="int" name="pRegNoTreatment" id="pRegNoTreatment"/></div>
               </div>
               <div class="row">
-                <div class="col-sm-5"><label class="lab">Patient Name:</label></div>
-                <div class="col-sm-7"><input class="form-control" type="text" name="pNameTreatment" id="pNameTreatment"/></div>
+                <div class="col-sm-2"><label class="lab">Patient Name:</label></div>
+                <div class="col-sm-4"><input class="form-control" type="text" name="pNameTreatment" id="pNameTreatment"/></div>
               </div>
               <div class="row">
-                <div class="col-sm-5"><label class="lab">Appointment No:</label></div>
-                <div class="col-sm-7"><input class="form-control" type="int" name="pAppNoTreatment" id="pAppNoTreatment"/></div>
+                <div class="col-sm-2"><label class="lab">Appointment No:</label></div>
+                <div class="col-sm-4"><input class="form-control" type="int" name="pAppNoTreatment" id="pAppNoTreatment"/></div>
               </div>
               <div class="row">
-                <div class="col-sm-5"><label class="lab">Treatment Details:</label></div>
-                <div class="col-sm-7"><textarea class="form-control" rows="4" name="treatmentDetails" id="treatmentDetails"></textarea></div>
+                <div class="col-sm-2"><label class="lab">Treatment Details:</label></div>
+                <div class="col-sm-4"><textarea class="form-control" rows="4" name="treatmentDetails" id="treatmentDetails"></textarea></div>
               </div> 
               <div class="row" style="margin-top:1%">
-                <div class="col-sm-5"><label class="lab">Total Cost:</label></div>
-                <div class="col-sm-7"><input class="form-control" type="int" name="cost" id="cost"/></div>
+                <div class="col-sm-2"><label class="lab">Total Cost:</label></div>
+                <div class="col-sm-4"><input class="form-control" type="int" name="cost" id="cost"/></div>
               </div>
               <div class="row">
-                <div class="col-sm-5"><label class="lab">Paid:</label></div>
-                <div class="col-sm-7"><input class="form-control" type="int" name="paid" id="paid"/></div>
+                <div class="col-sm-2"><label class="lab">Paid:</label></div>
+                <div class="col-sm-4"><input class="form-control" type="int" name="paid" id="paid"/></div>
               </div>
               <div class="row">
-                <div class="col-sm-5"><label class="lab">Balance:</label></div>
-                <div class="col-sm-7"><input class="form-control" type="int" name="balance" id="balance"/></div>
+                <div class="col-sm-2"><label class="lab">Balance:</label></div>
+                <div class="col-sm-4"><input class="form-control" type="int" name="balance" id="balance"/></div>
               </div>
-              <a href="#" type="button" class="btn btn-primary" name="btnAddTreatment" id="btnAddTreatment" style="margin-left:44%;margin-top:3%" >Save</a>
+              <a href="#" type="button" class="btn btn-primary" name="btnAddTreatment" id="btnAddTreatment" style="margin-left:17%;margin-top:1%" >Save</a>
             </div>
           </form>
           </div>

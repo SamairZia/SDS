@@ -6,7 +6,7 @@ var modal = document.getElementById('myModal');
 var btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+var span = document.getElementsByClassName("closePatient")[0];
 
 // When the user clicks the button, open the modal 
 btn.onclick = function() {
@@ -37,4 +37,16 @@ btnAddAppointment.onclick = function() {
 
 span.onclick = function() {
     modalAppointment.style.display = "none";
+}
+
+// Success Modal stuff for Add Patient Appointment
+// Get the modal
+var successModal = document.getElementById('successModal');
+
+// Get the <span> element that closes the modal
+var spancloseSuccessModal = document.getElementsByClassName("closeSuccessModal")[0];
+
+// When the user clicks on <span> (x), close the modal
+spancloseSuccessModal.onclick = function() {
+    successModal.style.display = "none";
 }
