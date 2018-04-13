@@ -33,7 +33,7 @@ module.exports = function(express, app, passport)
 		failureRedirect: '/'
 	}))
 	
-	router.get('/main', isLoggedIn, authcontroller.login)
+	router.get('/main', authcontroller.login)
 	
 	function isLoggedIn(req, res, next) 
 	{
