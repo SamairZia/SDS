@@ -36,6 +36,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   }, {
-    tableName: 'treatments'
+    tableName: 'treatments',
+	timestamps: false
   });
 };
