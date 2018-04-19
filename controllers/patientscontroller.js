@@ -8,6 +8,7 @@ var sequelize = require("sequelize")
 	PatientHealthFamily = models.patienthealthfamily
 
 exports.addPatient = function(req,res,next){
+	console.log("Patient controller is working");
 	var keys = Object.keys(req.body);
 	var chkKeys = [];
 	keys.forEach(function(key, index){
