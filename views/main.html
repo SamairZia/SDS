@@ -268,7 +268,7 @@
               </div>
               <div class="row">
                 <div class="col-sm-3"><label class="lab">Tel:</label></div>
-                <div class="col-sm-6"><input class="form-control" type="tel" name="tel" id="tel"/></div>
+                <div class="col-sm-6"><input class="form-control" type="tel" name="tel" id="telNo"/></div>
               </div>
               <div class="row">
                 <div class="col-sm-3"><label class="lab">Reference:</label></div>
@@ -363,16 +363,16 @@
           <div class="modal-body">
             <form id="add-appointment" method="POST" action = "/patient/add"><br/>
               <div class="row">
-                  <div class="col-sm-4"><label class="lab">Appointment No:</label></div>
-                  <div class="col-sm-2"><input class="form-control" type="int" name="pRegNo" id="pRegNo"/></div>
-                </div>
+                <div class="col-sm-4"><label class="lab">Appointment No:</label></div>
+                <div class="col-sm-2"><input class="form-control" type="int" name="appointmentNo" id="appointmentNo"/></div>
+              </div>
               <div class="row">
                 <div class="col-sm-4"><label class="lab">Date:</label></div>
                 <div class="col-sm-6"><input class="form-control" type="date" name="appointmentDate" id="appointmentDate"/></div>
               </div>
               <div class="row">
                 <div class="col-sm-4"><label class="lab">Reg. No:</label></div>
-                <div class="col-sm-6"><input class="form-control" type="int" name="pRegNo" id="pRegNo"/></div>
+                <div class="col-sm-6"><input class="form-control" type="int" name="pRegNoApp" id="pRegNoApp"/></div>
               </div>
               <div class="row">
                 <div class="col-sm-4"><label class="lab">Patient Name:</label></div>
@@ -380,15 +380,15 @@
               </div>
               <div class="row">
                 <div class="col-sm-4"><label class="lab">Time:</label></div>
-                <div class="col-sm-6"><input class="form-control" type="text" name="time" id="time"/></div>
+                <div class="col-sm-6"><input class="form-control" type="text" name="appTime" id="appTime"/></div>
               </div>
               <div class="row">
                 <div class="col-sm-4"><label class="lab">Comments:</label></div>
-                <div class="col-sm-6"><textarea class="form-control" name="endTime" id="endTime"></textarea></div>
+                <div class="col-sm-6"><textarea class="form-control" name="comments" id="comments"></textarea></div>
               </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Add Appointment</button>
+            <button type="submit" class="btn btn-danger" data-dismiss="modal">Add Appointment</button>
           </div>
         </form>          
         </div>
@@ -436,7 +436,7 @@
                 <div class="col-sm-2"><label class="lab">Balance:</label></div>
                 <div class="col-sm-4"><input class="form-control" type="int" name="balance" id="balance"/></div>
               </div>
-              <a href="#" type="button" class="btn btn-primary" name="btnAddTreatment" id="btnAddTreatment" style="margin-left:17%;margin-top:1%" >Save</a>
+              <button type="submit" class="btn btn-primary" name="btnAddTreatment" id="btnAddTreatment" style="margin-left:17%;margin-top:1%" >Save</button>
             </div>
           </form>
           </div>

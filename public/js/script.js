@@ -104,16 +104,70 @@ function validateForm() {
     }
 }
 
+// Add patients Modal stuff
+var formSubmitAddPatient = document.getElementById('add-patient');
 var submitAddPatient = document.getElementById('btnSubmitAddPatient');
 var successAddPatient = document.getElementById('successModal');
 var closeModalAddPatient = document.getElementById('myModal');
 
-submitAddPatient.onclick = function(e){
-    e.preventDefault();
-    successAddPatient.style.display = "block";
-    closeModalAddPatient.style.display = "none";
-}
 
-// function btnAddPatient(){
-//     alert("Done");
-// }
+formSubmitAddPatient.onsubmit = function(e) {
+    var name = document.getElementById('name').value;
+    var pname = document.getElementById('pname').value;
+    var houseaddress = document.getElementById('houseaddress').value;
+    var mstatus = document.getElementById('mstatus').value;
+    var occupation = document.getElementById('occupation').value;
+    var tel = document.getElementById('telNo').value;
+    var age = document.getElementById('age').value;
+    var sex = document.getElementById('sex').value;
+    var regNo = document.getElementById('regNo').value;
+
+    e.preventDefault();
+    if(name == "" || pname == "" || houseaddress == "" || occupation == "" || tel == "" || age == "" || regNo == ""){
+        alert("Please fill out all the fields.");
+        return false;
+    }
+    else {
+        successAddPatient.style.display = "block";
+        closeModalAddPatient.style.display = "none";
+        name = "";
+        return true;
+    }
+}
+//  add appointment stuff 
+ var formSubmitAddAppointment = document.getElementById('add-appointment');
+
+ formSubmitAddAppointment.onsubmit = function(e) {
+     var appointmentNo = document.getElementById('appointmentNo').value;
+     var pRegNoApp = document.getElementById('pRegNoApp').value;
+     var patientName = document.getElementById('patientName').value;
+     var appTime = document.getElementById('appTime').value;
+     e.preventDefault();
+     if(appointmentNo == "" || pRegNoApp == "" || patientName == "" || appTime == ""){
+        alert("Please fill out all the fields.")
+     }
+     else {
+         alert("Done!")
+     }
+ }
+
+// Add treatment stuff
+var formSubmitAddTreatment = document.getElementById('add-treatment');
+
+formSubmitAddTreatment.onsubmit = function(e) {
+    var pRegNoTreatment = document.getElementById('pRegNoTreatment').value;
+    var pNameTreatment = document.getElementById('pNameTreatment').value;
+    var pAppNoTreatment = document.getElementById('pAppNoTreatment').value;
+    var treatmentDetails = document.getElementById('treatmentDetails').value;
+    var cost = document.getElementById('cost').value;
+    var paid = document.getElementById('paid').value;
+    var balance = document.getElementById('balance').value;
+
+    e.preventDefault();
+    if(pRegNoTreatment == "" || pNameTreatment == "" || pAppNoTreatment == "" || treatmentDetails == "" || cost == "" || paid == "" || balance == "" ){
+        alert("Please fill out all the fields.")        
+    }
+    else {
+    alert("Done!")        
+    }
+}
