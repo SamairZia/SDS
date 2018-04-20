@@ -17,9 +17,14 @@ exports.addPatient = function(req,res,next){
 			chkKeys.push(key);
 		}
 	})
-	
-	PatientQA.findAll().then(function (data){
-		console.log(data);
+	console.log(chkKeys);
+	PatientQA.findAll({
+		where:{
+			problem:chkKeys
+		}
+	}
+	).then(function (data){
+		//console.log(data);
 	})
 	
 	// sequelize.transaction(function(t){
