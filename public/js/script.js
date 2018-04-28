@@ -114,7 +114,7 @@ var closeModalAddPatient = document.getElementById('myModal');
 formSubmitAddPatient.onsubmit = function(e) {
     var name = document.getElementById('name').value;
     var pname = document.getElementById('pname').value;
-    var houseaddress = document.getElementById('houseaddress').value;
+    var houseAddress = document.getElementById('houseaddress').value;
     var mstatus = document.getElementById('mstatus').value;
     var occupation = document.getElementById('occupation').value;
     var tel = document.getElementById('telNo').value;
@@ -123,13 +123,26 @@ formSubmitAddPatient.onsubmit = function(e) {
     var regNo = document.getElementById('regNo').value;
 
     e.preventDefault();
-    if(name == "" || pname == "" || houseaddress == "" || occupation == "" || tel == "" || age == "" || regNo == ""){
+    if(name == "" || pname == "" || houseAddress == "" || occupation == "" || tel == "" || age == "" || regNo == ""){
         alert("Please fill out all the fields.");
         return false;
     }
     else {
-        successAddPatient.style.display = "block";
-        closeModalAddPatient.style.display = "none";
+        var infoPatient = {"name" : name , "pname": pname , "houseAddress": houseAddress, "mstatus":mstatus, "occupation": occupation, "tel": tel, "age": age, "sex": sex, "regNo": regNo};
+        var infoPatientString = JSON.stringify(infoPatient);
+
+        var xhttp = new XMLHttpRequest();
+
+        xhttp.open("POST" , "/patients/add" , true);
+        xhttp.send(infoPatientString);
+        xhttp.onreadystatechange = function(){
+            if (this.readyState == 4 && this.status == 200){
+                alert("Submitted");
+            }
+        };
+
+        // successAddPatient.style.display = "block";
+        // closeModalAddPatient.style.display = "none";
         name = "";
         return true;
     }
