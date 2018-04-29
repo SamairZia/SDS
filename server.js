@@ -24,13 +24,18 @@ app.use(bodyParser.json());
 	{
 		extended: true
 	}));
-
+//sync models
+models.sequelize.sync().then(function(){
+	console.log("Models have been synced");
+})
+	
+	
 //strategy
 require('./config/passport/passport.js')(passport, models.users);
 
 //routes
 require('./routes/auth.js')(express, app, passport);
-require('./routes/patient.js')(express, app, models.patients);
+require('./routes/patient.js')(express, app);
 
 server.listen(3000, function(){
     console.log('Server working...');
