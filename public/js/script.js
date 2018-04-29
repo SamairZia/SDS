@@ -129,10 +129,11 @@ formSubmitAddPatient.onsubmit = function(e) {
     else {
         var infoPatient = {"name" : name , "pname": pname , "houseAddress": houseAddress, "mstatus":mstatus, "occupation": occupation, "tel": tel, "age": age, "sex": sex, "regNo": regNo};
         var infoPatientString = JSON.stringify(infoPatient);
-
+        
         var xhttp = new XMLHttpRequest();
 
         xhttp.open("POST" , "/patients/add" , true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");        
         xhttp.send(infoPatientString);
         xhttp.onreadystatechange = function(){
             if (this.readyState == 4 && this.status == 200){
