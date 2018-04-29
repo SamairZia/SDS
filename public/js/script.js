@@ -110,7 +110,6 @@ var submitAddPatient = document.getElementById('btnSubmitAddPatient');
 var successAddPatient = document.getElementById('successModal');
 var closeModalAddPatient = document.getElementById('myModal');
 
-
 formSubmitAddPatient.onsubmit = function(e) {
     var name = document.getElementById('name').value;
     var pname = document.getElementById('pname').value;
@@ -134,6 +133,7 @@ formSubmitAddPatient.onsubmit = function(e) {
         return true;
     }
 }
+
 //  add appointment stuff 
  var formSubmitAddAppointment = document.getElementById('add-appointment');
 
