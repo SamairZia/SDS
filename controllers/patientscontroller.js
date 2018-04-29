@@ -95,7 +95,7 @@ exports.addPatient = function(req,res,next){
 			status: 'OK',
 		})
 	}).catch(function (err){
-		// console.log(err)
+		console.log(err)
 	})
 	
 }
