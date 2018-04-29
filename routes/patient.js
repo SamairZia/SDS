@@ -1,4 +1,4 @@
-module.exports = function (express, app, patients){
+module.exports = function (express, app){
 	var router = express.Router(),
 		patientscontroller = require('../controllers/patientscontroller.js')
 	
