@@ -133,7 +133,7 @@ formSubmitAddPatient.onsubmit = function(e) {
         var xhttp = new XMLHttpRequest();
 
         xhttp.open("POST" , "/patients/add" , true);
-        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");        
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");        
         xhttp.send(infoPatientString);
         xhttp.onreadystatechange = function(){
             if (this.readyState == 4 && this.status == 200){
