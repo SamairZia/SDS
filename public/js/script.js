@@ -134,12 +134,12 @@ formSubmitAddPatient.onsubmit = function(e) {
 
         xhttp.open("POST" , "/patients/add" , true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");        
-        xhttp.send(infoPatientString);
         xhttp.onreadystatechange = function(){
             if (this.readyState == 4 && this.status == 200){
                 alert("Submitted");
             }
         };
+        xhttp.send(infoPatientString);
 
         // successAddPatient.style.display = "block";
         // closeModalAddPatient.style.display = "none";
