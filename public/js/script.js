@@ -128,7 +128,7 @@ formSubmitAddPatient.onsubmit = function(e) {
     }
     else {
         var infoPatient = {"name" : name , "pname": pname , "houseAddress": houseAddress, "mstatus":mstatus, "occupation": occupation, "tel": tel, "age": age, "sex": sex, "regNo": regNo};
-        var infoPatientString = JSON.stringify(infoPatient);
+        // var infoPatientString = JSON.stringify(infoPatient);
         
         var xhttp = new XMLHttpRequest();
 
@@ -139,7 +139,7 @@ formSubmitAddPatient.onsubmit = function(e) {
                 alert("Submitted");
             }
         };
-        xhttp.send(infoPatientString);
+        xhttp.send(infoPatient);
 
         // successAddPatient.style.display = "block";
         // closeModalAddPatient.style.display = "none";
