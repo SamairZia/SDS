@@ -18,7 +18,6 @@ exports.addPatient = function(req,res,next){
 	
 	//checkboxes are QA stuff
 	//pushes object names checking which checkboxes are true OR 'on'
-	//test
 	for (let problemQA of reqKeys){
 		if(req.body[problemQA] === "on" && !problemQA.startsWith("fam")){
 			reqQA.push(problemQA);
