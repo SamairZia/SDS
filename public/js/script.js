@@ -127,10 +127,6 @@ formSubmitAddPatient.onsubmit = function(e) {
         return false;
     }
     else {
-<<<<<<< HEAD
-        var infoPatient = {"name" : name , "pname": pname , "houseAddress": houseAddress, "mstatus":mstatus, "occupation": occupation, "tel": tel, "age": age, "sex": sex, "regNo": regNo};
-        var infoPatientString = JSON.stringify(infoPatient);
-=======
         var infoPatient = {
 			name : name,
 			pname : pname,
@@ -143,26 +139,17 @@ formSubmitAddPatient.onsubmit = function(e) {
 			regNo : regNo
 			};
         
->>>>>>> 51438620208a3834546d2d50bfc3b015e64716d4
         
         var xhttp = new XMLHttpRequest();
 
         xhttp.open("POST" , "/patients/add" , true);
-<<<<<<< HEAD
-        xhttp.setRequestHeader("Content-type", "application/json");        
-=======
         xhttp.setRequestHeader("Content-type", "application/json");     
         xhttp.send(JSON.stringify(infoPatient));
->>>>>>> 51438620208a3834546d2d50bfc3b015e64716d4
         xhttp.onreadystatechange = function(){
             if (this.readyState == 4 && this.status == 200){
                 alert("Submitted");
             }
         };
-<<<<<<< HEAD
-        xhttp.send(infoPatientString);
-=======
->>>>>>> 51438620208a3834546d2d50bfc3b015e64716d4
 
         // successAddPatient.style.display = "block";
         // closeModalAddPatient.style.display = "none";
