@@ -128,22 +128,21 @@ formSubmitAddPatient.onsubmit = function(e) {
     }
     else {
         var infoPatient = {"name" : name , "pname": pname , "houseAddress": houseAddress, "mstatus":mstatus, "occupation": occupation, "tel": tel, "age": age, "sex": sex, "regNo": regNo};
-        // var infoPatientString = JSON.stringify(infoPatient);
+        var infoPatientString = JSON.stringify(infoPatient);
         
         var xhttp = new XMLHttpRequest();
 
         xhttp.open("POST" , "/patients/add" , true);
-        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");        
+        xhttp.setRequestHeader("Content-type", "application/json");        
         xhttp.onreadystatechange = function(){
             if (this.readyState == 4 && this.status == 200){
                 alert("Submitted");
             }
         };
-        xhttp.send(infoPatient);
+        xhttp.send(infoPatientString);
 
         // successAddPatient.style.display = "block";
         // closeModalAddPatient.style.display = "none";
-        name = "";
         return true;
     }
 }
