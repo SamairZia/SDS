@@ -216,6 +216,7 @@ formSubmitAddPatient.onsubmit = function(e) {
             }
         };
 
+        // formSubmitAddPatient.reset(); Reset Form after submitting
         // successAddPatient.style.display = "block";
         // closeModalAddPatient.style.display = "none";
         return true;
@@ -230,12 +231,32 @@ formSubmitAddPatient.onsubmit = function(e) {
      var pRegNoApp = document.getElementById('pRegNoApp').value;
      var patientName = document.getElementById('patientName').value;
      var appTime = document.getElementById('appTime').value;
+     var comments = document.getElementById('comments').value;
+
      e.preventDefault();
      if(appointmentNo == "" || pRegNoApp == "" || patientName == "" || appTime == ""){
         alert("Please fill out all the fields.")
+        return false;
      }
      else {
-         alert("Done!")
+         var infoAppointment = { 
+             appointmentNo : appointmentNo,
+             pRegNoApp : pRegNoApp,
+             patientName : patientName,
+             appTime : appTime,
+             comments : comments
+         };
+         var xhttpAppointment = new XMLHttpRequest();
+
+         xhttpAppointment.open("POST" , "/patients/add" , true);
+         xhttpAppointment.setRequestHeader("Content-type", "application/json");     
+         xhttpAppointment.send(JSON.stringify(infoAppointment));
+         xhttpAppointment.onreadystatechange = function(){
+             if (this.readyState == 4 && this.status == 200){
+                 alert("Submitted");
+             }
+         };
+         return true;
      }
  }
 
@@ -253,9 +274,29 @@ formSubmitAddTreatment.onsubmit = function(e) {
 
     e.preventDefault();
     if(pRegNoTreatment == "" || pNameTreatment == "" || pAppNoTreatment == "" || treatmentDetails == "" || cost == "" || paid == "" || balance == "" ){
-        alert("Please fill out all the fields.")        
+        alert("Please fill out all the fields.")
+        return false;
     }
     else {
-    alert("Done!")        
+        var infoTreatment = {
+            pRegNoTreatment : pRegNoTreatment,
+            pNameTreatment : pNameTreatment,
+            pAppNoTreatment : pAppNoTreatment,
+            treatmentDetails : treatmentDetails,
+            cost : cost,
+            paid : paid,
+            balance : balance
+        };
+        var xhttpTreatment = new XMLHttpRequest();
+
+        xhttpTreatment.open("POST" , "/patients/add" , true);
+        xhttpTreatment.setRequestHeader("Content-type", "application/json");     
+        xhttpTreatment.send(JSON.stringify(infoTreatment));
+        xhttpTreatment.onreadystatechange = function(){
+            if (this.readyState == 4 && this.status == 200){
+                alert("Submitted");
+            }
+        };
+        return true;
     }
 }
