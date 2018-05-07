@@ -29,8 +29,8 @@ models.sequelize.sync()
 	.then(function(){
 	console.log("Models have been synced")
 	})
-	.catch(function(){
-		console.log("Error syncing database - check database config")
+	.catch(function(error){
+		console.log(error)
 	})
 	
 	
