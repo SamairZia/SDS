@@ -305,11 +305,13 @@ formSubmitAddTreatment.onsubmit = function(e) {
 var searchPatient = document.getElementById('searchPatient');
 var searchResultPersonalHistory = document.getElementById('searchResultPersonalHistory');
 var searchResultAppointment = document.getElementById('searchResultAppointment');
+var searchResultTreatment = document.getElementById('searchResultTreatment');
 
 //Working
 searchPatient.onclick = function(e){
-    searchResultPersonalHistory.innerHTML = "Something happend";
-    searchResultAppointment.innerHTML = "Appointment history updated";
+    searchResultPersonalHistory.innerHTML = "Something happend.";
+    searchResultAppointment.innerHTML = "Appointment history updated.";
+    searchResultTreatment.innerHTML = "Treatment history updated."
     // var ajeeb = '{ "name":"John", "age":30, "city":"New York"}'
     // var obj = JSON.parse( ajeeb );
     // // Now you can access the string using the dot notation
