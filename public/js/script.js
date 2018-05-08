@@ -78,18 +78,28 @@ document.getElementById('dashDate').innerHTML = m + "/" + d + "/" + y ;
 //             return true;
 //         }
 //     }
-// } 
+// }  
 
 function validateForm() {
-    var userName = document.getElementById('userName').value;
-    var userPass = document.getElementById('userPass').value;
+    var x = document.getElementById('userName').value;
+    var y = document.getElementById('userEmail').value;
+    var z = document.getElementById('userPass').value;
     // var x = document.forms["loginform"]["uname"].value;
-    if (userName == "" || userPass == "") {
+    if (x == "" || z == "") {
         alert("All fileds must be filled out.");
         document.getElementById("errorLogin").innerHTML = "All fields must be filled out!"
         return false;
     }
-    else {        
+    else {
+        var data = {"name": x ,"email": y , "pass": z};
+        var dataString = JSON.stringify(data);
+        //localStorage.setItem("testing" , dataString);
+        xmlhttp = new XMLHttpRequest();
+        
+        xmlhttp.open("POST" , "/login" , true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send(dataString);
+        document.getElementById("errorLogin").innerHTML = ""        
         return true;
     }
 }
@@ -101,7 +111,8 @@ var successAddPatient = document.getElementById('successModal');
 var closeModalAddPatient = document.getElementById('myModal');
 
 formSubmitAddPatient.onsubmit = function(e) {
-    var name 			= document.getElementById('name').value;
+	var pdate			= document.getElementById('pdate').value;
+	var name 			= document.getElementById('name').value;
     var pname 			= document.getElementById('pname').value;
     var houseAddress 	= document.getElementById('houseAddress').value;
     var workAddress 	= document.getElementById('workAddress').value;
@@ -112,7 +123,6 @@ formSubmitAddPatient.onsubmit = function(e) {
     var age 			= document.getElementById('age').value;
     var sex 			= document.getElementById('sex').value;
     var regNo 			= document.getElementById('regNo').value;
-	var hospitalization = document.getElementById('hospitalization').value;
     
 	//Getting ids of Patient Health Questionnaire
     // 1. Personal Habits
@@ -159,8 +169,9 @@ formSubmitAddPatient.onsubmit = function(e) {
         alert("Please fill out all the fields.");
         return false;
     }
-    else {
+	else {
         var infoPatient = {
+			date					: pdate,
 			name 					: name,
 			pname 					: pname,
             houseAddress		 	: houseAddress,
@@ -199,11 +210,11 @@ formSubmitAddPatient.onsubmit = function(e) {
             fambleedingDisorder 	: fambleedingDisorder,
             pregnancy 				: pregnancy,
             breastFeeding 			: breastFeeding
-			};
+			}
         
         var xhttp = new XMLHttpRequest();
 
-        xhttp.open("POST" , "/main/patients/add" , true);
+        xhttp.open("POST" , "/patients/add" , true);
         xhttp.setRequestHeader("Content-type", "application/json");     
         xhttp.send(JSON.stringify(infoPatient));
         xhttp.onreadystatechange = function(){
@@ -216,7 +227,7 @@ formSubmitAddPatient.onsubmit = function(e) {
         // successAddPatient.style.display = "block";
         // closeModalAddPatient.style.display = "none";
         return true;
-    }
+    }	
 }
 
 //  add appointment stuff 
