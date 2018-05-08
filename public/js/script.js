@@ -101,9 +101,8 @@ var successAddPatient = document.getElementById('successModal');
 var closeModalAddPatient = document.getElementById('myModal');
 
 formSubmitAddPatient.onsubmit = function(e) {
-	var date 			= document.getElementById('date').value;
     var name 			= document.getElementById('name').value;
-    var pname 			= document.getElementById('paname').value;
+    var pname 			= document.getElementById('pname').value;
     var houseAddress 	= document.getElementById('houseAddress').value;
     var workAddress 	= document.getElementById('workAddress').value;
     var mstatus 		= document.getElementById('mstatus').value;
@@ -204,7 +203,7 @@ formSubmitAddPatient.onsubmit = function(e) {
         
         var xhttp = new XMLHttpRequest();
 
-        xhttp.open("POST" , "/patients/add" , true);
+        xhttp.open("POST" , "/main/patients/add" , true);
         xhttp.setRequestHeader("Content-type", "application/json");     
         xhttp.send(JSON.stringify(infoPatient));
         xhttp.onreadystatechange = function(){
