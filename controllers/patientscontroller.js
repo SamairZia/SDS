@@ -16,21 +16,23 @@ exports.addPatient = function(req,res,next){
 	var dataForPatientQA = []; //creates and store data for the bulk creation of data for patientqa
 	var dataForPatientQAFamily = []; //creates and store data for the bulk creation of data for patientqafamily
 	
-	const util = require('util');
-	//console.log(`post/${util.inspect(req.body,false,null)}`);
+	//request object is returned as [Object Object] so this is used to parse
+	//uncomment the code below to use
 	
+	const util = require('util');
+	console.log(`post/${util.inspect(req.body,false,null)}`);
+
 	
 	//checkboxes are QA stuff
 	//pushes object names checking which checkboxes are true OR 'on'
 	for (let problemQA of reqKeys){
+		console.log("chekcing "+problemQA);
 		if(!problemQA.startsWith("fam") && req.body[problemQA] === true){
 			reqQA.push(problemQA);
 		}
 		if(problemQA.startsWith("fam") && req.body[problemQA] === true){
 			reqQAFamily.push(problemQA);
 		}
-		console.log("QA is " + reqQA)
-		console.log("QAfamily is " + reqQAFamily);
 	}
 	
 	
@@ -73,8 +75,7 @@ exports.addPatient = function(req,res,next){
 					break
 				}
 			}
-		}
-		
+		}		
 	});
 	
 	//data is created for patient
