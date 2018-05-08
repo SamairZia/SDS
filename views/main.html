@@ -156,8 +156,16 @@
 
       <!-- Search Result data -->
       <div class="row">
-        <div class="col-sm-5">
-      <div id="searchResult">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-header">
+              <b>Patient's Personal History</b>
+            </div>
+            <div class="card-body" id="searchResultPersonalHistory" >
+              History goes here.
+            </div>
+          </div>
+      <!-- <div id="searchResult">
         <table>
           <tr>
             <td>Joining Date:</td>
@@ -208,18 +216,35 @@
             <td></td>
           </tr>
         </table>
-      </div>
+      </div> -->
     </div>
     <div class="col-sm-5">
+      <div class="row">
+      <div class="col-sm-12">        
       <div class="card">
-        <div class="card-body">
-          <div class="card-title">
-            Appointment History
-          </div>
-          History goes here.
+        <div class="card-header">
+          <b>Appointment History</b>
+        </div>
+        <div class="card-body" id="searchResultAppointment">          
+          Appointment History goes here.
         </div>
       </div>
-    </div>
+      </div><!--inner col-sm div close-->
+      </div> <!-- inner row div close-->
+      <br>
+      <div class="row">
+      <div class="col-sm-12">        
+      <div class="card">
+        <div class="card-header">
+          <b>Treatment History</b>
+        </div>
+        <div class="card-body" id="searchResultTreatment">          
+          Treatment History goes here.
+        </div>
+        </div>
+        </div><!--inner col-sm div close-->
+        </div> <!-- inner row div close-->
+    </div> <!-- col-sm-5 div close -->
     </div> <!--Row div close -->
 
       <!-- Add Patient Modal -->
@@ -234,7 +259,7 @@
             <form id="add-patient" method="POST" action="/patients/add" >
               <div class="row">
                 <div class="col-sm-3"><label class="lab">Date:</label></div>
-                <div class="col-sm-6"><input class="form-control" type="date" name="date" id="date"/></div>
+                <div class="col-sm-6"><input class="form-control" type="date" name="pdate" id="pdate"/></div>
               </div>
               <div class="row">
                 <div class="col-sm-3"><label class="lab">Name:</label></div>
