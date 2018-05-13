@@ -220,10 +220,10 @@ formSubmitAddPatient.onsubmit = function(e) {
         xhttp.onreadystatechange = function(){
             if (this.readyState == 4 && this.status == 200){
                 alert("Submitted");
+                formSubmitAddPatient.reset(); //Reset Form after submitting
             }
         };
 
-        // formSubmitAddPatient.reset(); Reset Form after submitting
         // successAddPatient.style.display = "block";
         // closeModalAddPatient.style.display = "none";
         return true;
@@ -306,4 +306,40 @@ formSubmitAddTreatment.onsubmit = function(e) {
         };
         return true;
     }
+}
+
+//search patient button
+var searchPatient = document.getElementById('searchPatient');
+var searchResultPersonalHistory = document.getElementById('searchResultPersonalHistory');
+var searchResultAppointment = document.getElementById('searchResultAppointment');
+var searchResultTreatment = document.getElementById('searchResultTreatment');
+
+//Working
+searchPatient.onclick = function(e){
+    searchResultPersonalHistory.innerHTML = "Something happend.";
+    searchResultAppointment.innerHTML = "Appointment history updated.";
+    searchResultTreatment.innerHTML = "Treatment history updated."
+    // var ajeeb = '{ "name":"John", "age":30, "city":"New York"}'
+    // var obj = JSON.parse( ajeeb );
+    // // Now you can access the string using the dot notation
+    // console.log( obj.name );
+
+    // var xhttpSearch = new XMLHttpRequest();
+    // fetch( '/patients/add', {
+	// method: 'get'
+    //     }).then( function( response ) {
+    //         // Success
+    //         alert('fetch func')
+    //     }).catch( function( err ) {
+    //         // Error
+    //     });
+    // xhttpSearch.open("POST" , "/patients/add");
+    // xhttpSearch.send();    
+    // xhttpSearch.onreadystatechange = function(){
+    //     if (this.readyState == 4 && this.status == 200){
+    //         var items = JSON.parse(xhttpSearch.infoPatient);
+    //         alert("clicked")
+    //         console.log(items);
+    //     }
+    // };
 }
