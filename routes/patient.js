@@ -4,5 +4,5 @@ module.exports = function (express, app){
 	
 	router.post('/add', patientscontroller.addPatient);
 	
-	app.use('/patients', router);
+	app.use('/main/patients', router);
 }
