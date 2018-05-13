@@ -90,18 +90,6 @@ function validateForm() {
         document.getElementById("errorLogin").innerHTML = "All fields must be filled out!"
         return false;
     }
-    else {
-        var data = {"name": x ,"email": y , "pass": z};
-        var dataString = JSON.stringify(data);
-        //localStorage.setItem("testing" , dataString);
-        xmlhttp = new XMLHttpRequest();
-        
-        xmlhttp.open("POST" , "/login" , true);
-        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xmlhttp.send(dataString);
-        document.getElementById("errorLogin").innerHTML = ""        
-        return true;
-    }
 }
 
 // Add patients Modal stuff
@@ -210,11 +198,11 @@ formSubmitAddPatient.onsubmit = function(e) {
             fambleedingDisorder 	: fambleedingDisorder,
             pregnancy 				: pregnancy,
             breastFeeding 			: breastFeeding
-			}
+		}
         
         var xhttp = new XMLHttpRequest();
 
-        xhttp.open("POST" , "/patients/add" , true);
+        xhttp.open("POST" , "/main/patients/add" , true);
         xhttp.setRequestHeader("Content-type", "application/json");     
         xhttp.send(JSON.stringify(infoPatient));
         xhttp.onreadystatechange = function(){
