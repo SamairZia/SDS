@@ -10,25 +10,27 @@ exports.addAppointment = function(req, res, next){
 	
 }
 
-exports.fetchAppNo = function(req, res, next){
+exports.getAppNo = function(req, res, next){
 	
 	Appointment.find({
 		attributes : [
 			[sequelize.fn('max', sequelize.col('appno')), 'appno']
 		]
 	}).then(function(appointment){
-		let appno
-		if (appointment.appno===null){
-			appno = 0
-			console.log("if loop " + appno);
+		let appNo
+		if (appointment.appNo===null){
+			appNo = 0
 		}
 		else {
-			appno = appointment.appno;
-			console.log("else loop " + appno);
+			appNo = appointment.appno;
 		}
-		console.log(appointment)
 		
-		res.end();
+		appNo = appNo + 1;
+		console.log(appNo);
+		res.json({
+			appNo: appNo
+		});
+		
 	}).catch(function(error){
 		console.log(error)
 	})
