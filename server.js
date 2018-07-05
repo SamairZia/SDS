@@ -40,6 +40,7 @@ require('./config/passport/passport.js')(passport, models.users);
 //routes
 require('./routes/auth.js')(express, app, passport);
 require('./routes/patient.js')(express, app);
+require('./routes/appointment.js')(express, app);
 
 server.listen(3000, function(){
     console.log('Server working...');
