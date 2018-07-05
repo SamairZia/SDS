@@ -6,7 +6,29 @@ var models = require("../models"),
 	
 
 exports.addAppointment = function(req, res, next){
+	console.log("Patient controller is working");
 	
+	var regNo = req.body.pRegNoApp,
+		appNo = req.body.appointmentNo,
+		date = req.body.appointmentDate,
+		time = req.body.appTime,
+		comments = req.body.comments;
+	
+	Appointment.create({
+		appno : appNo,
+		regno : regNo,
+		date  : date,
+		time  : time,
+		comments : comments		
+	}).then(function(){
+		//commit is done
+		res.send({
+			status: 'OK',
+		})
+	}).catch(function (err){
+		//rollback
+		console.log(err)
+	})
 	
 }
 

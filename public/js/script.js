@@ -227,34 +227,36 @@ formSubmitAddPatient.onsubmit = function(e) {
      var patientName = document.getElementById('patientName').value;
      var appTime = document.getElementById('appTime').value;
      var comments = document.getElementById('comments').value;
-
+	 var date = document.getElementById('appointmentDate').value;
      e.preventDefault();
-     // if(appointmentNo == "" || pRegNoApp == "" || patientName == "" || appTime == ""){
-        // alert("Please fill out all the fields.")
-        // return false;
-     // }
-     // else {
-         // var infoAppointment = { 
-             // appointmentNo : appointmentNo,
-             // pRegNoApp : pRegNoApp,
-             // patientName : patientName,
-             // appTime : appTime,
-             // comments : comments
-         // };
-         // var xhttpAppointment = new XMLHttpRequest();
+     if(appointmentNo == "" || pRegNoApp == "" || patientName == "" || appTime == ""){
+        alert("Please fill out all the fields.")
+        return false;
+     }
+     else {
+         var infoAppointment = { 
+             appointmentNo : appointmentNo,
+             pRegNoApp : pRegNoApp,
+             patientName : patientName,
+             appTime : appTime,
+             comments : comments,
+			 date : date
+         };
+         var xhttpAppointment = new XMLHttpRequest();
 
-         // xhttpAppointment.open("POST" , "/main/appointment/add" , true);
-         // xhttpAppointment.setRequestHeader("Content-type", "application/json");     
-         // xhttpAppointment.send(JSON.stringify(infoAppointment));
-         // xhttpAppointment.onreadystatechange = function(){
-             // if (this.readyState == 4 && this.status == 200){
-                 // alert("Submitted");
-             // }
-         // };
-         // return true;
-     // }
+         xhttpAppointment.open("POST" , "/main/appointment/add" , true);
+         xhttpAppointment.setRequestHeader("Content-type", "application/json");     
+         xhttpAppointment.send(JSON.stringify(infoAppointment));
+         xhttpAppointment.onreadystatechange = function(){
+             if (this.readyState == 4 && this.status == 200){
+                 alert("Submitted");
+             }
+         };
+         return true;
+     }
 	 
-	 
+	 //this is to get recent appointment number
+	 //use it after add appointment window loads
 	 var xhtp = new XMLHttpRequest();
 	 xhtp.open("GET", "main/appointment/getAppNo");
 	 xhtp.onload = function(){
@@ -263,6 +265,8 @@ formSubmitAddPatient.onsubmit = function(e) {
 	 }; 
 	 xhtp.send();
 	 
+	 //this is to get the patient name
+	 //use it when focus is moved from Patient name
 	 var getPatientName = new XMLHttpRequest();
 	 getPatientName.open("GET", "main/patients/getPatientName/" +pRegNoApp);
 	 getPatientName.onload = function(){
