@@ -243,7 +243,7 @@ formSubmitAddPatient.onsubmit = function(e) {
          // };
          // var xhttpAppointment = new XMLHttpRequest();
 
-         // xhttpAppointment.open("POST" , "/main/appointments/add" , true);
+         // xhttpAppointment.open("POST" , "/main/appointment/add" , true);
          // xhttpAppointment.setRequestHeader("Content-type", "application/json");     
          // xhttpAppointment.send(JSON.stringify(infoAppointment));
          // xhttpAppointment.onreadystatechange = function(){
@@ -254,10 +254,23 @@ formSubmitAddPatient.onsubmit = function(e) {
          // return true;
      // }
 	 
-	 var xhtp = new XMLHttpRequest();
 	 
-	 xhtp.open("GET", "main/appointment/getAppNo")
+	 var xhtp = new XMLHttpRequest();
+	 xhtp.open("GET", "main/appointment/getAppNo");
+	 xhtp.onload = function(){
+		 var myObj = JSON.parse(xhtp.responseText);
+		 document.getElementById('appointmentNo').value = myObj.appNo;
+	 }; 
 	 xhtp.send();
+	 
+	 var getPatientName = new XMLHttpRequest();
+	 getPatientName.open("GET", "main/patients/getPatientName/" +pRegNoApp);
+	 getPatientName.onload = function(){
+		 var myObj = JSON.parse(getPatientName.responseText);
+		 document.getElementById('patientName').value = myObj.patientName;
+	 }; 
+	 
+	 getPatientName.send();
  }
 
 // Add treatment stuff

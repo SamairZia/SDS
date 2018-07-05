@@ -4,5 +4,7 @@ module.exports = function (express, app){
 	
 	router.post('/add', patientscontroller.addPatient);
 	
+	router.get('/getPatientName/:regNo', patientscontroller.getPatientName);
+	
 	app.use('/main/patients', router);
 }
