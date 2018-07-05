@@ -100,7 +100,7 @@ exports.addPatient = function(req,res,next){
 	// straight forward insert commands
 	// bulk query does inserts in bulk
 	// passing transaction: t to each create function lets the tracking of transaction whether to rollback or commit
-	sequelize.transaction(function(t){
+	sequelize.transaction({autocommit: true}, function(t){
 		return Patients.create(dataForPatient, {transaction: t})
 		.then(function(patient){
 			return PatientHealth.bulkCreate(dataForPatientQA, {transaction: t})
@@ -117,7 +117,6 @@ exports.addPatient = function(req,res,next){
 		//rollback
 		console.log(err)
 	})
-	
 }
 
 exports.getPatientName = function(req,res,next){
