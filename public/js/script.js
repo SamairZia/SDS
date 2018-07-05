@@ -229,30 +229,35 @@ formSubmitAddPatient.onsubmit = function(e) {
      var comments = document.getElementById('comments').value;
 
      e.preventDefault();
-     if(appointmentNo == "" || pRegNoApp == "" || patientName == "" || appTime == ""){
-        alert("Please fill out all the fields.")
-        return false;
-     }
-     else {
-         var infoAppointment = { 
-             appointmentNo : appointmentNo,
-             pRegNoApp : pRegNoApp,
-             patientName : patientName,
-             appTime : appTime,
-             comments : comments
-         };
-         var xhttpAppointment = new XMLHttpRequest();
+     // if(appointmentNo == "" || pRegNoApp == "" || patientName == "" || appTime == ""){
+        // alert("Please fill out all the fields.")
+        // return false;
+     // }
+     // else {
+         // var infoAppointment = { 
+             // appointmentNo : appointmentNo,
+             // pRegNoApp : pRegNoApp,
+             // patientName : patientName,
+             // appTime : appTime,
+             // comments : comments
+         // };
+         // var xhttpAppointment = new XMLHttpRequest();
 
-         xhttpAppointment.open("POST" , "/main/appointments/add" , true);
-         xhttpAppointment.setRequestHeader("Content-type", "application/json");     
-         xhttpAppointment.send(JSON.stringify(infoAppointment));
-         xhttpAppointment.onreadystatechange = function(){
-             if (this.readyState == 4 && this.status == 200){
-                 alert("Submitted");
-             }
-         };
-         return true;
-     }
+         // xhttpAppointment.open("POST" , "/main/appointments/add" , true);
+         // xhttpAppointment.setRequestHeader("Content-type", "application/json");     
+         // xhttpAppointment.send(JSON.stringify(infoAppointment));
+         // xhttpAppointment.onreadystatechange = function(){
+             // if (this.readyState == 4 && this.status == 200){
+                 // alert("Submitted");
+             // }
+         // };
+         // return true;
+     // }
+	 
+	 var xhtp = new XMLHttpRequest();
+	 
+	 xhtp.open("GET", "main/appointment/fetchAppNo")
+	 xhtp.send();
  }
 
 // Add treatment stuff
