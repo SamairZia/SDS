@@ -256,7 +256,7 @@ formSubmitAddPatient.onsubmit = function(e) {
 	 
 	 var xhtp = new XMLHttpRequest();
 	 
-	 xhtp.open("GET", "main/appointment/fetchAppNo")
+	 xhtp.open("GET", "main/appointment/getAppNo")
 	 xhtp.send();
  }
 
