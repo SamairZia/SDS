@@ -120,5 +120,23 @@ exports.addPatient = function(req,res,next){
 	
 }
 
+exports.getPatientName = function(req,res,next){
+	
+	var regNo = req.params.regNo;
+	console.log("Requested regNo is " + regNo);
+	Patients.findOne({
+		where: {
+			regno: regNo
+		},
+		attributes: ['name']
+	}).then(function(patient){
+		console.log("Patient name is " + patient.name);
+		res.json({
+			patientName : patient.name
+		});
+	}).catch(function(error){
+		
+	})
+}
 	
 

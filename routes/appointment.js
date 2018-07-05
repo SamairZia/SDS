@@ -4,7 +4,7 @@ module.exports = function (express, app){
 	
 	router.post('/add', appointmentcontroller.addAppointment);
 	
-	router.get('/fetchAppNo', appointmentcontroller.fetchAppNo);
+	router.get('/getAppNo', appointmentcontroller.getAppNo);
 	
 	app.use('/main/appointment', router);
 }
