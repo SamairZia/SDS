@@ -34,10 +34,15 @@ exports.addAppointment = function(req, res, next){
 
 exports.getAppNo = function(req, res, next){
 	
-	Appointment.find({
+	var regNo = req.params.regNo;
+	
+	Appointment.findOne({
 		attributes : [
 			[sequelize.fn('max', sequelize.col('appno')), 'appno']
-		]
+		],
+		where : {
+			regno : regNo
+		}
 	}).then(function(appointment){
 		let appNo
 		if (appointment.appNo===null){
