@@ -112,7 +112,8 @@ exports.addPatient = function(req,res,next){
 		//commit is done
 		res.send({
 			status: 'OK',
-		})
+		});
+		res.end();
 	}).catch(function (err){
 		//rollback
 		console.log(err)
@@ -133,6 +134,7 @@ exports.getPatientName = function(req,res,next){
 		res.json({
 			patientName : patient.name
 		});
+		res.end();
 	}).catch(function(error){
 		
 	})

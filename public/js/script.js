@@ -344,12 +344,13 @@ searchPatient.onclick = function(e){
 
      function loadAppNo() {
          console.log('sssss')
-         alert('load');
         //  sec = pRegNoApp;
      var xhtp = new XMLHttpRequest();
      var pRegNoApp = document.getElementById('pRegNoApp').value;
-	 xhtp.open("GET", "main/appointment/getAppNo" +pRegNoApp);
+	 xhtp.open("GET", "main/appointment/getAppNo/" +pRegNoApp);
 	 xhtp.onload = function(){
+		 alert("App number triggered");
+		 console.log(xhtp.responseText);
 		 var myObj = JSON.parse(xhtp.responseText);
          document.getElementById('appointmentNo').value = myObj.appNo;
 		//  document.getElementById('patientName').value = myObj.patientName;         
@@ -358,7 +359,6 @@ searchPatient.onclick = function(e){
      var getPatientName = new XMLHttpRequest();
 	 getPatientName.open("GET", "main/patients/getPatientName/" +pRegNoApp);
 	 getPatientName.onload = function(){
-         alert("patient name triggered");
 		 var myObj = JSON.parse(getPatientName.responseText);
 		 document.getElementById('patientName').value = myObj.patientName;
      };

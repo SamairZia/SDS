@@ -24,7 +24,8 @@ exports.addAppointment = function(req, res, next){
 		//commit is done
 		res.send({
 			status: 'OK',
-		})
+		});
+		res.end();
 	}).catch(function (err){
 		//rollback
 		console.log(err)
@@ -35,7 +36,8 @@ exports.addAppointment = function(req, res, next){
 exports.getAppNo = function(req, res, next){
 	
 	var regNo = req.params.regNo;
-	if(regNo && regNo == "number"){
+	console.log("regquest for appno " + regNo + " type is " + typeof(regNo));
+	if(regNo){
 		Appointment.findOne({
 			attributes : [
 				[sequelize.fn('max', sequelize.col('appno')), 'appno']
@@ -57,6 +59,7 @@ exports.getAppNo = function(req, res, next){
 			res.json({
 				appNo: appNo
 			});
+			res.end();
 			
 		}).catch(function(error){
 			console.log(error)
