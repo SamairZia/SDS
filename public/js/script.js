@@ -255,21 +255,7 @@ formSubmitAddPatient.onsubmit = function(e) {
          return true;
      }
 	 
-<<<<<<< HEAD
 	//moved code at the bottom
-=======
-	 //this is to get recent appointment number
-	 //use it after add appointment window loads
-	 var xhtp = new XMLHttpRequest();
-	 xhtp.open("GET", "main/appointment/getAppNo/" +pRegNoApp);
-	 xhtp.onload = function(){
-		 var myObj = JSON.parse(xhtp.responseText);
-		 document.getElementById('appointmentNo').value = myObj.appNo;
-	 }; 
-	 xhtp.send();
->>>>>>> origin/master
-	 
-	 
  }
 
 // Add treatment stuff
