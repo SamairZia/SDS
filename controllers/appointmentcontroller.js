@@ -34,26 +34,33 @@ exports.addAppointment = function(req, res, next){
 
 exports.getAppNo = function(req, res, next){
 	
-	Appointment.find({
-		attributes : [
-			[sequelize.fn('max', sequelize.col('appno')), 'appno']
-		]
-	}).then(function(appointment){
-		let appNo
-		if (appointment.appNo===null){
-			appNo = 0
-		}
-		else {
-			appNo = appointment.appno;
-		}
-		
-		appNo = appNo + 1;
-		console.log(appNo);
-		res.json({
-			appNo: appNo
-		});
-		
-	}).catch(function(error){
-		console.log(error)
-	})
+	var regNo = req.params.regNo;
+	if(regNo && regNo == "number"){
+		Appointment.findOne({
+			attributes : [
+				[sequelize.fn('max', sequelize.col('appno')), 'appno']
+			],
+			where : {
+				regno : regNo
+			}
+		}).then(function(appointment){
+			let appNo
+			if (appointment.appNo===null){
+				appNo = 0
+			}
+			else {
+				appNo = appointment.appno;
+			}
+			
+			appNo = appNo + 1;
+			console.log(appNo);
+			res.json({
+				appNo: appNo
+			});
+			
+		}).catch(function(error){
+			console.log(error)
+		})
+	}
+	
 }

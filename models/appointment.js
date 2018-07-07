@@ -10,6 +10,7 @@ module.exports = function(sequelize, DataTypes) {
 		regno: {
 			type: DataTypes.INTEGER(11).UNSIGNED,
 			allowNull: false,
+			primaryKey: true,
 			references: {
 				model: 'patients',
 				key: 'regno'
