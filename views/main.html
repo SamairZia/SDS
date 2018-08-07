@@ -21,80 +21,115 @@
 </head>
 <body >
   <!-- header  -->
-  <div class="header">
-      <div class="logo">
-          <i class="fa fa-hospital-o"></i>
-          <span>SDS</span>
+<nav class="nav navbar navbar-light d-flex justify-content-between py-0 sticky-top" style="background-color:#363F4D">
+  <div class="container-fluid">
+    <a class="navbar-brand font-weight-bold" href="#" style="color:#0497df;">
+      <i class="fa fa-hospital-o"></i> SDS</a>
+    <form class="nav-item" style="width: 30rem;">
+      <div class="input-group pt-3">
+        <input type="text" class="form-control" placeholder="Search patient...">
+        <button class="btn" style="background-color: teal;color: whitesmoke;" type="button" id="searchPatient">
+          <i class="fa fa-search fa-fw"></i>
+        </button>
       </div>
-      <button type="button" class="btn btn-light" id="btnLogout"><strong>Logout </strong><i class="fa fa-sign-out" aria-hidden="true"></i></button>
-      <span class="uprofile"><i class="fa fa-user-circle fa-2x"></i><div class="tooltiptext">{{user.username}}</div></span>
+    </form>
+    <div class="d-inline-flex p-2">
+      <a href="#">
+        <i class="fa fa-user-circle fa-2x pr-3 mt-0" style="color: white"></i>
+      </a>
+      <button type="button" class="btn btn-sm btn-danger" id="btnLogout">
+        <strong>Logout </strong>
+        <i class="fa fa-sign-out"></i>
+      </button>
+    </div>
   </div>
+</nav>
 
+<!-- side-nav bar -->
   <div class="side-nav">
-      <div class="logo">
-          <i class="fa fa-hospital-o"></i>
-          <span>SDS</span>
+    <!-- side-nav ul li for medium and large screens -->
+    <div class="d-none d-sm-none d-md-block">
+        <ul>
+            <li>
+              <a href="#" id="aDashboard">
+              <span><i class="fa fa-home " aria-hidden="true"></i></span>
+              <span> Dashboard</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" id="aAppointment">
+                <span><i class="fa fa-calendar " aria-hidden="true"></i></span>
+              <span> Appointment</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" id="aPatient">
+                <span><i class="fa fa-users " aria-hidden="true"></i></span>
+              <span> Patient</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" id="aTreatment">
+                <span><i class="fa fa-plus-square " aria-hidden="true"></i></span>
+              <span> Treatment</span>
+              </a>
+            </li>
+            <br/>
+          </ul>
+    </div>
+    <!--side-nav ul li for small screens -->
+    <div class="d-block d-sm-block d-md-none">
+        <ul>
+          <li>
+            <a href="#" id="aDashboard">
+              <i class="fa fa-home"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#" id="aAppointment">
+              <i class="fa fa-calendar "></i>
+            </a>
+          </li>
+          <li>
+            <a href="#" id="aPatient">
+              <i class="fa fa-users "></i>
+            </a>
+          </li>
+          <li>
+            <a href="#" id="aTreatment">
+              <i class="fa fa-plus-square "></i>
+            </a>
+          </li>
+        </ul>
       </div>
-    <ul>
-      <li>
-        <a href="#" id="aDashboard">
-        <span><i class="fa fa-home " aria-hidden="true"></i></span>
-        <span> Dashboard</span>
-        </a>
-      </li>
-      <li>
-        <a href="#" id="aAppointment">
-          <span><i class="fa fa-calendar " aria-hidden="true"></i></span>
-        <span> Appointment</span>
-        </a>
-      </li>
-      <li>
-        <a href="#" id="aPatient">
-          <span><i class="fa fa-users " aria-hidden="true"></i></span>
-        <span> Patient</span>
-        </a>
-      </li>
-      <li>
-        <a href="#" id="aTreatment">
-          <span><i class="fa fa-plus-square " aria-hidden="true"></i></span>
-        <span> Treatment</span>
-        </a>
-      </li>
-      <br/>
-    </ul>
-  </div><!--sidenav closing div -->
+  </div><!--side-nav closing div -->
   
   <!-- Dashboard content -->
   <div id="divDashboard" class="dashboard">
     <!-- <h1 class="marqueecolor">Dashboard</h1> --><br/>
     <marquee><h2 class="marqueeColor">Shakir Dental Surgery</h2></marquee><hr/>
-    <!-- <div class="row">
-      <div class="col-sm-3"><h4 class="dashUserDiv">Total Patients : </h4></div>
-      <div class="col-sm-3"><h4 class="dashUserDiv">Total Appointments : </h4></div>
-      <div class="col-sm-3"><div class="card text-white bg-primary o-hidden">
-        <div class="card-body">
-        <div class="card-body-icon">
-      <i class="fa fa-fw fa-comments"></i>
-</div></div></div></div>
-    </div> -->
+    
     <div class="row">
-      <div class="col-sm-3">
+      <div class="col-sm-4 col-md-4 col-lg-3">
         <div class="card text-white bg-info o-hidden">
           <div class="card-body">
               <i class="fa fa-4x fa-comments float-right"></i>
             <div class="mr-5">Total Appointments!</div>
           </div>
         </div>
+            <br class="d-block d-sm-block d-md-none"/>
       </div>
-      <div class="col-sm-3">
+      
+      <div class="col-sm-4 col-md-4 col-lg-3">
         <div class="card text-white bg-info o-hidden">
           <div class="card-body">
             <i class="fa fa-4x fa-users float-right"></i>
           <div class="mr-5">Total Patients!</div>
           </div>
         </div>
+        <br class="d-block d-sm-block d-md-none"/>
       </div>
-    <div class="col-sm-3">
+    <div class="col-sm-4 col-md-4 col-lg-3">
       <div class="card text-white bg-danger o-hidden">
         <div class="card-body">
           <i class="fa fa-4x fa-money float-right"></i>
@@ -132,10 +167,18 @@
       <!-- OWN model stuff starts -->
       <!-- Trigger/Open The Modal -->
       <div class="row">
-        <div class="col-sm-2">
+        <!-- <div class="d-flex justify-content-between">
+          <div>
+        <button type="button" class="btn btn-danger" id="myBtn"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add Patient</button>
+          </div>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search patient..." ><button class="btn btn-info" type="button" id="searchPatient"><i class="fa fa-search fa-fw" aria-hidden="true"></i></button>
+          </div>
+        </div> -->
+        <div class="col-sm-4">
         <button type="button" class="btn btn-danger" id="myBtn"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add Patient</button>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-4 col-md-8 col-lg-4">
         <div class="input-group mb-3">
           <input type="text" class="form-control" placeholder="Search patient..." aria-describedby="basic-addon2"><button class="btn btn-info" type="button" id="searchPatient"><i class="fa fa-search fa-fw" aria-hidden="true"></i></button>
         </div>
@@ -388,20 +431,20 @@
           <div class="modal-body">
             <form id="add-appointment" method="POST" action = "/patient/add"><br/>
               <div class="row">
+                <div class="col-sm-4"><label class="lab">Reg. No:</label></div>
+                <div class="col-sm-6"><input class="form-control" type="int" name="pRegNoApp" id="pRegNoApp"/></div>
+              </div>
+              <div class="row">
                 <div class="col-sm-4"><label class="lab">Appointment No:</label></div>
-                <div class="col-sm-2"><input class="form-control" type="int" name="appointmentNo" id="appointmentNo"/></div>
+                <div class="col-sm-6"><input class="form-control" type="int" name="appointmentNo" id="appointmentNo" readonly/></div>
               </div>
               <div class="row">
                 <div class="col-sm-4"><label class="lab">Date:</label></div>
                 <div class="col-sm-6"><input class="form-control" type="date" name="appointmentDate" id="appointmentDate"/></div>
               </div>
               <div class="row">
-                <div class="col-sm-4"><label class="lab">Reg. No:</label></div>
-                <div class="col-sm-6"><input class="form-control" type="int" name="pRegNoApp" id="pRegNoApp"/></div>
-              </div>
-              <div class="row">
                 <div class="col-sm-4"><label class="lab">Patient Name:</label></div>
-                <div class="col-sm-6"><input class="form-control" type="text" name="patientName" id="patientName"/></div>
+                <div class="col-sm-6"><input class="form-control" type="text" name="patientName" id="patientName" readonly/></div>
               </div>
               <div class="row">
                 <div class="col-sm-4"><label class="lab">Time:</label></div>

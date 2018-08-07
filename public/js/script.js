@@ -258,6 +258,12 @@ formSubmitAddPatient.onsubmit = function(e) {
 	//moved code at the bottom
  }
 
+ //Setting curremt date in Add Apointment modal
+//  var myDate =  new Date().toISOString().substr(0,10);
+//  document.getElementById('me').value = myDate;
+
+ document.getElementById("appointmentDate").valueAsDate = new Date();
+
 // Add treatment stuff
 var formSubmitAddTreatment = document.getElementById('add-treatment');
 
