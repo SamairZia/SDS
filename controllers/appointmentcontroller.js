@@ -10,7 +10,7 @@ exports.addAppointment = function(req, res, next){
 	
 	var regNo = req.body.pRegNoApp,
 		appNo = req.body.appointmentNo,
-		date = req.body.appointmentDate,
+		date = req.body.date,
 		time = req.body.appTime,
 		comments = req.body.comments;
 	
