@@ -1,14 +1,13 @@
 var models = require("../models"),
 	sequelize = models.sequelize,
 	exports = module.exports = {},
-	Appointment = models.appointment,
-	Patients = models.patients
+	Appointment = models.appointment;
 	
 
 exports.addAppointment = function(req, res, next){
 	console.log("Patient controller is working");
 	
-	var regNo = req.body.pRegNoApp,
+	let regNo = req.body.pRegNoApp,
 		appNo = req.body.appointmentNo,
 		date = req.body.date,
 		time = req.body.appTime,
@@ -35,7 +34,7 @@ exports.addAppointment = function(req, res, next){
 
 exports.getAppNo = function(req, res, next){
 	
-	var regNo = req.params.regNo;
+	let regNo = req.params.regNo;
 	console.log("regquest for appno " + regNo + " type is " + typeof(regNo));
 	if(regNo){
 		Appointment.findOne({
@@ -46,21 +45,19 @@ exports.getAppNo = function(req, res, next){
 				regno : regNo
 			}
 		}).then(function(appointment){
-			let appNo
-			if (appointment.appNo===null){
-				appNo = 0
-			}
-			else {
+			let appNo = 0;
+			if (appointment.appno != null){
 				appNo = appointment.appno;
+				console.log("App object is "+appointment.get({
+					plain:true
+				}));
 			}
-			
 			appNo = appNo + 1;
-			console.log(appNo);
+			console.log("App number is "+appNo);
 			res.json({
 				appNo: appNo
 			});
-			res.end();
-			
+			res.end();			
 		}).catch(function(error){
 			console.log(error)
 		})
