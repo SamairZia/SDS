@@ -1,5 +1,6 @@
 var express = require('express'),
 	app = express(),
+	exphbs = require('express-handlebars');
 	server = require('http').createServer(app),
 	path = require('path'),
 	env = require('dotenv').load(),
@@ -13,9 +14,14 @@ var models = require("./models");
 
 //app environment
 app.set('views', path.join(__dirname, 'views'));
-app.engine('html', require('hogan-express'));
-app.set('view engine', 'html');
+app.engine('.hbs', exphbs({
+	extname: '.hbs'
+}));
+
+app.set('view engine', '.hbs');
 app.use(express.static(path.join(__dirname, 'public')));
+
+
 app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized:true })); // session secret
 app.use(passport.initialize());
 app.use(passport.session());
