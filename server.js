@@ -26,8 +26,8 @@ app.use(bodyParser.json());
 	}));
 //sync models
 models.sequelize.sync()
-	.then(function(){
-	console.log("Models have been synced")
+	.then(function(){		
+		console.log("Models have been synced")
 	})
 	.catch(function(error){
 		console.log(error)
