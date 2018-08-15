@@ -1,5 +1,5 @@
 body {
-    background-color: #e9e8e7da; /* #f0eeec */
+    background-color: #F7F7F7; /* #f0eeec */
 
 }
 
@@ -200,9 +200,7 @@ input.input_fields_forms {
     z-index: 3;
 	display: block
 }
-/* .side-nav.visible {
-	display: block;
-} */
+
 .side-nav ul {
 	margin: 0;
 	padding: 0;
