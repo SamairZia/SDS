@@ -108,7 +108,8 @@ exports.addPatient = function(req,res,next){
 				return PatientHealthFamily.bulkCreate(dataForPatientQAFamily, {transaction: t})
 			})
 		})
-	}).then(function (result){
+	})
+	.then(function (result){
 		//commit is done
 		res.send({
 			status: 'OK',

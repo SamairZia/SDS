@@ -44,7 +44,8 @@ exports.getAppNo = function(req, res, next){
 			where : {
 				regno : regNo
 			}
-		}).then(function(appointment){
+		})
+		.then(function(appointment){
 			let appNo = 0;
 			if (appointment.appno != null){
 				appNo = appointment.appno;
@@ -58,7 +59,8 @@ exports.getAppNo = function(req, res, next){
 				appNo: appNo
 			});
 			res.end();			
-		}).catch(function(error){
+		})
+		.catch(function(error){
 			console.log(error)
 		})
 	}
