@@ -1,0 +1,45 @@
+<!-- Appointment content -->
+<div id="divAppointment" class="appointment">
+    <h1 class="marqueecolor">Appointment</h1>
+    <button type="button" class="btn btn-danger" id="btnAddAppointment"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add Appointment</button>
+
+    <div id="modalAppointment" class="modal" >
+      <div class="modal-content-appointment">
+        <div class="modal-header">
+          <h4 class="modal-title">Add Appointment</h4>
+            <span class="closeAppointment">&times;</span>
+        </div>
+        <div class="modal-body">
+          <form id="add-appointment" method="POST" action = "/patient/add"><br/>
+            <div class="row">
+              <div class="col-sm-4"><label class="lab">Reg. No:</label></div>
+              <div class="col-sm-6"><input class="form-control" type="int" name="pRegNoApp" id="pRegNoApp"/></div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4"><label class="lab">Appointment No:</label></div>
+              <div class="col-sm-6"><input class="form-control" type="int" name="appointmentNo" id="appointmentNo" readonly/></div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4"><label class="lab">Date:</label></div>
+              <div class="col-sm-6"><input class="form-control" type="date" name="appointmentDate" id="appointmentDate"/></div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4"><label class="lab">Patient Name:</label></div>
+              <div class="col-sm-6"><input class="form-control" type="text" name="patientName" id="patientName" readonly/></div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4"><label class="lab">Time:</label></div>
+              <div class="col-sm-6"><input class="form-control" type="text" name="appTime" id="appTime"/></div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4"><label class="lab">Comments:</label></div>
+              <div class="col-sm-6"><textarea class="form-control" name="comments" id="comments"></textarea></div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger" data-dismiss="modal">Add Appointment</button>
+        </div>
+      </form>          
+      </div>
+    </div>
+  </div>
