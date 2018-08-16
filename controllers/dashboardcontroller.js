@@ -1,9 +1,12 @@
 var exports = module.exports = {}
 
 exports.signup = function (req, res, next){
-	res.render('signup');
+	res.render('signup', {layout: false});
 }
 
 exports.login = function (req, res, next){
-	res.render('main',{titlePage: 'Home Page', user:req.body});
+	res.render('dashboard',{
+		titlePage: 'SDS | Dashboard',
+		user:req.body
+	});
 }

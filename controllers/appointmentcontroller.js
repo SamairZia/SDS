@@ -4,6 +4,13 @@ var models = require("../models"),
 	Appointment = models.appointment;
 	
 
+
+exports.appointment = function(req, res, next){
+	res.render('appointment',{
+		titlePage: 'SDS | Appointment',
+	});
+}
+
 exports.addAppointment = function(req, res, next){
 	console.log("Patient controller is working");
 	

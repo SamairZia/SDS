@@ -15,7 +15,8 @@ var models = require("./models");
 //app environment
 app.set('views', path.join(__dirname, 'views'));
 app.engine('.hbs', exphbs({
-	extname: '.hbs'
+	extname: '.hbs',
+	defaultLayout: 'main'
 }));
 
 app.set('view engine', '.hbs');
@@ -44,9 +45,10 @@ models.sequelize.sync()
 require('./config/passport/passport.js')(passport, models.users);
 
 //routes
-require('./routes/auth.js')(express, app, passport);
+require('./routes/main.js')(express, app, passport);
 require('./routes/patient.js')(express, app);
 require('./routes/appointment.js')(express, app);
+require('./routes/treatment.js')(express, app);
 
 server.listen(3000, function(){
     console.log('Server working...');

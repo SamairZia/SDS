@@ -1,11 +1,18 @@
 var models = require("../models"),
 	sequelize = models.sequelize,
 	exports = module.exports = {},
-	Patients = models.patients,
+	Patient = models.patients,
 	PatientQA = models.patientqa,
 	PatientQAFamily = models.patientqafamily,
 	PatientHealth = models.patienthealth,
-	PatientHealthFamily = models.patienthealthfamily
+	PatientHealthFamily = models.patienthealthfamily;
+	
+	
+exports.patient = function(req, res, next){
+	res.render('patient', {
+		titlePage: 'SDS | Patients'
+	});
+}
 
 exports.addPatient = function(req,res,next){
 	console.log("Patient controller is working");
@@ -101,7 +108,7 @@ exports.addPatient = function(req,res,next){
 	// bulk query does inserts in bulk
 	// passing transaction: t to each create function lets the tracking of transaction whether to rollback or commit
 	sequelize.transaction({autocommit: true}, function(t){
-		return Patients.create(dataForPatient, {transaction: t})
+		return Patient.create(dataForPatient, {transaction: t})
 		.then(function(patient){
 			return PatientHealth.bulkCreate(dataForPatientQA, {transaction: t})
 			.then(function(somedata){
@@ -126,7 +133,7 @@ exports.getPatientName = function(req,res,next){
 	let regNo = req.params.regNo;
 	let ifExists = false;
 	console.log("Requested regNo is " + regNo);
-	Patients.findOne({
+	Patient.findOne({
 		where: {
 			regno: regNo
 		}

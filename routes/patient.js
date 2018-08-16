@@ -1,10 +1,13 @@
 module.exports = function (express, app){
 	var router = express.Router(),
-		patientscontroller = require('../controllers/patientscontroller.js')
+		patientcontroller = require('../controllers/patientcontroller.js')
+		
 	
-	router.post('/add', patientscontroller.addPatient);
+	router.get('/', patientcontroller.patient);
 	
-	router.get('/getPatientName/:regNo', patientscontroller.getPatientName);
+	router.post('/add', patientcontroller.addPatient);
 	
-	app.use('/main/patients', router);
+	router.get('/getPatientName/:regNo', patientcontroller.getPatientName);
+	
+	app.use('/main/patient', router);
 }

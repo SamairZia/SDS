@@ -1,16 +1,16 @@
 module.exports = function(express, app, passport)
 {
 	var router = express.Router(),
-		authcontroller = require('../controllers/authcontroller.js')
+		dashboardcontroller = require('../controllers/dashboardcontroller.js')
 		
 	router.get('/', function(req, res, next)
 	{
 		if(req.isAuthenticated())
 		{
-			res.redirect('/main');
+			res.redirect('/main/dashboard');
 		}
 		else
-			res.render('index',{titlePage: 'Welcome to Shakir Dental Clinic'});
+			res.render('index',{titlePage: 'Welcome to Shakir Dental Clinic', layout:false});
 	})
 	
 	router.get('/logout', function (req, res, next)
@@ -19,21 +19,24 @@ module.exports = function(express, app, passport)
 		res.redirect('/');
 	})
 	
-	router.get('/signup', authcontroller.signup)
+	router.get('/signup', dashboardcontroller.signup)
 	
 	router.post('/signup', passport.authenticate('local-signup', 
 	{
-		successRedirect: '/main',
+		successRedirect: '/main/dashboard',
 		failureRedirect: '/signup'
 	}))
 	
 	router.post('/login', passport.authenticate('local-signin', 
 	{
-		successRedirect: '/main',
+		successRedirect: '/main/dashboard',
 		failureRedirect: '/'
 	}))
 	
-	router.get('/main', authcontroller.login)
+	//TODO create a main route that redirects to the dashboard route
+	//protect that main route using isLoggedIn
+	
+	router.get('/main/dashboard', dashboardcontroller.login)
 	
 	function isLoggedIn(req, res, next) 
 	{

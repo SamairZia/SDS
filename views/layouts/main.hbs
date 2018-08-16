@@ -19,8 +19,7 @@
     <link rel="stylesheet" href="../style/style.css">
     <title>{{titlePage}}</title>
 </head>
-<body >
-  
+
   <!-- header  -->
 <nav class="nav navbar navbar-light d-flex justify-content-between py-0 sticky-top" style="background-color:#363F4D">
   <div class="container-fluid">
@@ -52,25 +51,25 @@
     <div class="d-none d-sm-none d-md-block">
         <ul>
             <li>
-              <a href="#" id="aDashboard">
+              <a href="/main/dashboard" id="aDashboard">
               <span><i class="fa fa-home " aria-hidden="true"></i></span>
               <span> Dashboard</span>
               </a>
             </li>
             <li>
-              <a href="#" id="aAppointment">
+              <a href="/main/appointment" id="aAppointment">
                 <span><i class="fa fa-calendar " aria-hidden="true"></i></span>
               <span> Appointment</span>
               </a>
             </li>
             <li>
-              <a href="#" id="aPatient">
+              <a href="/main/patient" id="aPatient">
                 <span><i class="fa fa-users " aria-hidden="true"></i></span>
               <span> Patient</span>
               </a>
             </li>
             <li>
-              <a href="#" id="aTreatment">
+              <a href="/main/treatment" id="aTreatment">
                 <span><i class="fa fa-plus-square " aria-hidden="true"></i></span>
               <span> Treatment</span>
               </a>
@@ -104,6 +103,10 @@
         </ul>
       </div>
   </div><!--side-nav closing div -->
+
+<body >
+  
+{{{ body }}}
 
       <!-- scripts path-->
       <script src="../js/modal.js"></script>
