@@ -13,20 +13,20 @@ body {
 }
 
 .patient{
-    display: none;
+    display: block;
     margin-left: 15%; /* Same as the width of the sidebar */
     padding: 0px 10px;
 }
 
 .appointment{
-    display: none;
+    display: block;
     margin-left: 15%; /* Same as the width of the sidebar */
     padding: 0px 10px;
 }
 
 .treatment{
     margin-top: 5px;    
-    display: none;
+    display: block;
     margin-left: 15%; /* Same as the width of the sidebar */
     padding: 0px 10px;
 }
@@ -58,7 +58,6 @@ input.input_fields_forms {
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 3; /* Sit on top */
     padding-top: 80px; /* Location of the box */
     padding-bottom: 30px;
     left: 0;
