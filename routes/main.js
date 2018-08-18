@@ -33,8 +33,9 @@ module.exports = function(express, app, passport)
 		failureRedirect: '/'
 	}))
 	
-	//TODO create a main route that redirects to the dashboard route
-	//protect that main route using isLoggedIn
+	router.get('/main', isLoggedIn, function(req,res,next){
+		res.redirect('/');
+	})
 	
 	router.get('/main/dashboard', dashboardcontroller.login)
 	
@@ -53,4 +54,7 @@ module.exports = function(express, app, passport)
     }
 	
 	app.use('/', router);
+	
+	///To protect all the routes ahead /main
+	//app.use('/main/*', isLoggedIn);
 }

@@ -128,6 +128,7 @@ exports.addPatient = function(req,res,next){
 	})
 }
 
+
 exports.getPatientName = function(req,res,next){
 	
 	let regNo = req.params.regNo;
@@ -137,7 +138,8 @@ exports.getPatientName = function(req,res,next){
 		where: {
 			regno: regNo
 		}
-	}).then(function(patient){
+	})
+	.then(function(patient){
 		if (patient != null){
 			console.log("Patient number is " + patient.regno);
 			console.log("Patient name is " + patient.name);
@@ -153,8 +155,26 @@ exports.getPatientName = function(req,res,next){
 			});
 		}
 		res.end();
-	}).catch(function(error){
+	})
+	.catch(function(error){
 		console.log(error)
+	})
+}
+
+exports.getPatientAll = function(req,res,next){
+	Patient.findAll({
+		attributes:['regno', 'name'],
+		raw: true
+	})
+	.then(function(patient){
+		console.log(patient);
+		res.json({
+			patient: patient
+		})
+		res.end()
+	})
+	.catch(function(error){
+		console.log(error);
 	})
 }
 	
