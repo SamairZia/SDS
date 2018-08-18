@@ -99,20 +99,3 @@ button.btn_login {
     background-repeat: no-repeat;
     background-size: cover
 }
-
-/* Table stuff */
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    /* width: 50%; */
-}
-
-td, th {
-    border: 2px solid #dddddd;
-    text-align: left;
-    padding: 8px; 
-}
-
-tr:nth-child(even) {
-    background-color: #dddddd;
-}

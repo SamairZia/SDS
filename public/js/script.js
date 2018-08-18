@@ -22,38 +22,6 @@ var refPatient = document.getElementById('aPatient');
 //get a href of treatment
 var refTreatment = document.getElementById('aTreatment');
 
-//function when click on dashboard ref
-refDashboard.onclick = function(){
-    dashboard.style.display = "block";
-    patient.style.display = "none";
-    appointment.style.display = "none";
-    treatment.style.display = "none";
-}
-
-//function when click on appointment ref
-refAppointment.onclick = function(){
-    appointment.style.display = "block";    
-    dashboard.style.display = "none";
-    patient.style.display = "none";
-    treatment.style.display = "none";
-}
-
-//function when click on patient ref
-refPatient.onclick = function(){
-    patient.style.display = "block";
-    dashboard.style.display = "none";
-    appointment.style.display = "none";
-    treatment.style.display = "none";
-}
-
-//function when click on treatment ref
-refTreatment.onclick = function(){
-    treatment.style.display = "block";    
-    appointment.style.display = "none";    
-    dashboard.style.display = "none";
-    patient.style.display = "none";
-}
-
 n =  new Date();
 y = n.getFullYear();
 m = n.getMonth() + 1;
@@ -211,9 +179,6 @@ formSubmitAddPatient.onsubmit = function(e) {
                 formSubmitAddPatient.reset(); //Reset Form after submitting
             }
         };
-
-        // successAddPatient.style.display = "block";
-        // closeModalAddPatient.style.display = "none";
         return true;
     }	
 }
@@ -374,4 +339,8 @@ searchPatient.onclick = function(e){
 
      //this is to get the patient name
 	 //use it when focus is moved from Patient name
-	      
+          
+    function clickableFun(){
+        var zzb = document.getElementById('ssBtn');
+        alert('ddd')
+    }

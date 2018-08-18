@@ -14,7 +14,8 @@
           </div>
         </div> -->
         <div class="col-sm-4">
-        <button type="button" class="btn btn-danger" id="myBtn"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add Patient</button>
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#patientModal" id="myBtn">
+          <i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add Patient</button>
         </div>
         <div class="col-sm-4 col-md-8 col-lg-4">
         <div class="input-group mb-3">
@@ -43,71 +44,103 @@
               <b>Patient's Personal History</b>
             </div>
             <div class="card-body" id="searchResultPersonalHistory" >
-              History goes here.
+              <table class="table table-borderless">
+                <thead class="">
+                  
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Name</th>
+                    <td>samair</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Reg No.</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Parent Name</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">House Address</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Work Address</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Marital Status</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Occupation</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Tel</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Reference</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Age</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Sex</th>
+                    <td></td>
+                  </tr>
+                  <tr class="thead-light">
+                    <th colspan="2" >Health History</th>
+                  </tr>
+                  <tr>
+                    <th scope="row">Problem 1</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Problem 2</th>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
-      <!-- <div id="searchResult">
-        <table>
-          <tr>
-            <td>Joining Date:</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>Reg. No.</td>
-            <td></td>
-          </tr> 
-          <tr>
-            <td>Name:</td>
-            <td></td>
-          </tr> 
-          <tr>
-            <td>Parent Name:</td>
-            <td></td>
-          </tr> 
-          <tr>
-            <td>House Address:</td>
-            <td>ABC street House # 123 xyz area karachi</td>
-          </tr> 
-          <tr>
-            <td>Work Address:</td>
-            <td></td>
-          </tr> 
-          <tr>
-            <td>Marital Status:</td>
-            <td></td>
-          </tr> 
-          <tr>
-            <td>Occupation:</td>
-            <td></td>
-          </tr> 
-          <tr>
-            <td>Tel:</td>
-            <td></td>
-          </tr> 
-          <tr>
-            <td>Refrence:</td>
-            <td></td>
-          </tr> 
-          <tr>
-            <td>Age:</td>
-            <td></td>
-          </tr> 
-          <tr>
-            <td>Sex:</td>
-            <td></td>
-          </tr>
-        </table>
-      </div> -->
+      
     </div>
     <div class="col-sm-5">
       <div class="row">
       <div class="col-sm-12">        
       <div class="card">
-        <div class="card-header">
+        <div class="card-header ">
           <b>Appointment History</b>
         </div>
         <div class="card-body" id="searchResultAppointment">          
-          Appointment History goes here.
+          <table class="table">
+            <thead>
+
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Appointmnet No.</th>
+                <td></td>
+              </tr>
+              <tr>
+                <th scope="row">Date</th>
+                <td></td>
+              </tr>
+              <tr>
+                <th scope="row">Time</th>
+                <td></td>
+              </tr>
+              <tr>
+                <th scope="row">Comments</th>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
       </div><!--inner col-sm div close-->
@@ -120,7 +153,25 @@
           <b>Treatment History</b>
         </div>
         <div class="card-body" id="searchResultTreatment">          
-          Treatment History goes here.
+          <table class="table">
+            <thead>
+
+            </thead>
+            <tbody>
+              <tr>
+                <td scope="row">Appointmnet No.</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td scope="row">Treatment Details</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td scope="row">Total Cost</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         </div>
         </div><!--inner col-sm div close-->
@@ -128,15 +179,17 @@
     </div> <!-- col-sm-5 div close -->
     </div> <!--Row div close -->
 
-      <!-- Add Patient Modal -->
-      <div id="myModal" class="modal">
-      <!-- Modal content -->
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Add Patient</h4>                    
-              <span class="closePatient">&times;</span>
-          </div>
-          <div class="modal-body">
+<!-- Modal -->
+<div class="modal fade" id="patientModal" tabindex="-1" role="dialog" aria-labelledby="patientModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header headerFooterColor">
+        <h5 class="modal-title" id="patientModalLabel">Add Patient</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
             <form id="add-patient" >
               <div class="row">
                 <div class="col-sm-3"><label class="lab">Date:</label></div>
@@ -246,11 +299,12 @@
                 <div class="col-sm-3"><input type="checkbox" name="breastFeeding" id="breastFeeding"/>Breast Feeding</div>
               </div><br>
           </div>
-          <div class="modal-footer">
-            <button type="submit" id="btnSubmitAddPatient"class="btn btn-danger" data-dismiss="modal" >Add Patient</button>
+          <div class="modal-footer headerFooterColor">
+            <button type="submit" id="btnSubmitAddPatient" class="btn btn-danger">Add Patient</button>
           </div>
-        </form>          
-        </div>
-      </div>
+          </form>
     </div>
-    <!-- own model stuff ends -->
+  </div>
+</div>
+
+  <script src="../public/js/script.js"></script>
