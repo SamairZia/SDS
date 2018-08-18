@@ -14,7 +14,8 @@
           </div>
         </div> -->
         <div class="col-sm-4">
-        <button type="button" class="btn btn-danger" id="myBtn"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add Patient</button>
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#patientModal" id="myBtn">
+          <i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add Patient</button>
         </div>
         <div class="col-sm-4 col-md-8 col-lg-4">
         <div class="input-group mb-3">
@@ -52,7 +53,7 @@
       <div class="row">
       <div class="col-sm-12">        
       <div class="card">
-        <div class="card-header">
+        <div class="card-header ">
           <b>Appointment History</b>
         </div>
         <div class="card-body" id="searchResultAppointment">          
@@ -77,15 +78,17 @@
     </div> <!-- col-sm-5 div close -->
     </div> <!--Row div close -->
 
-      <!-- Add Patient Modal -->
-      <div id="myModal" class="modal">
-      <!-- Modal content -->
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Add Patient</h4>                    
-              <span class="closePatient">&times;</span>
-          </div>
-          <div class="modal-body">
+<!-- Modal -->
+<div class="modal fade" id="patientModal" tabindex="-1" role="dialog" aria-labelledby="patientModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header headerFooterColor">
+        <h5 class="modal-title" id="patientModalLabel">Add Patient</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
             <form id="add-patient" >
               <div class="row">
                 <div class="col-sm-3"><label class="lab">Date:</label></div>
@@ -195,11 +198,10 @@
                 <div class="col-sm-3"><input type="checkbox" name="breastFeeding" id="breastFeeding"/>Breast Feeding</div>
               </div><br>
           </div>
-          <div class="modal-footer">
-            <button type="submit" id="btnSubmitAddPatient"class="btn btn-danger" data-dismiss="modal" >Add Patient</button>
+          <div class="modal-footer headerFooterColor">
+            <button type="submit" id="btnSubmitAddPatient" class="btn btn-danger">Add Patient</button>
           </div>
-        </form>          
-        </div>
-      </div>
+          </form>
     </div>
-    <!-- own model stuff ends -->
+  </div>
+</div>

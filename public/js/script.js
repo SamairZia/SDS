@@ -179,9 +179,6 @@ formSubmitAddPatient.onsubmit = function(e) {
                 formSubmitAddPatient.reset(); //Reset Form after submitting
             }
         };
-
-        // successAddPatient.style.display = "block";
-        // closeModalAddPatient.style.display = "none";
         return true;
     }	
 }
