@@ -339,4 +339,8 @@ searchPatient.onclick = function(e){
 
      //this is to get the patient name
 	 //use it when focus is moved from Patient name
-	      
+          
+    function clickableFun(){
+        var zzb = document.getElementById('ssBtn');
+        alert('ddd')
+    }
