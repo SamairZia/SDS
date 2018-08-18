@@ -9,5 +9,7 @@ module.exports = function (express, app){
 	
 	router.get('/getPatientName/:regNo', patientcontroller.getPatientName);
 	
+	router.get('/getPatientAll', patientcontroller.getPatientAll);
+	
 	app.use('/main/patient', router);
 }
