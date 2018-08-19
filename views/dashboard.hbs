@@ -3,7 +3,7 @@
     <!-- <h1 class="marqueecolor">Dashboard</h1> --><br/>
     <marquee><h2 class="marqueeColor">Shakir Dental Surgery</h2></marquee><hr/>
     
-  <button id="ssBtn" class="btn btn-dark" onclick="clickableFun()">JS Source testing</button>
+  <button id="ssBtn" class="btn btn-dark">JS Source testing</button>
     <div class="row">
       <div class="col-sm-4 col-md-4 col-lg-3">
         <div class="card text-white bg-info o-hidden">
@@ -58,4 +58,10 @@
       </tbody>
     </table>
   </div>
-  <script src="../public/js/script.js"></script>
+
+<script type="text/javascript">
+	
+	document.getElementById("ssBtn").onclick = function() {
+		alert("JS is working")
+		};
+</script>
