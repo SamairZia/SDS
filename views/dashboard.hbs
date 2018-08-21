@@ -1,9 +1,8 @@
 <!-- Dashboard content -->
   <div id="divDashboard" class="dashboard">
     <!-- <h1 class="marqueecolor">Dashboard</h1> --><br/>
-    <marquee><h2 class="marqueeColor">Shakir Dental Surgery</h2></marquee><hr/>
+    {{!-- <marquee><h2 class="marqueeColor">Shakir Dental Surgery</h2></marquee><hr/> --}}
     
-  <button id="ssBtn" class="btn btn-dark">JS Source testing</button>
     <div class="row">
       <div class="col-sm-4 col-md-4 col-lg-3">
         <div class="card text-white bg-info o-hidden">
@@ -40,13 +39,13 @@
       <div class="col-sm-3"><h4 id="dashDate"></h4></div>
     </div><br/>
     <table class="table table-bordered w-50">
-      <thead class="thead-light">
+      <thead class="headerFooterColor">
         <tr>
           <th>Patient's Name</th>
           <th>Appointment Time</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody style="background-color: white">
         <tr>
           <td>{{user.username}}</td>
           <td>{{user.email}}</td>
@@ -57,11 +56,7 @@
         </tr>
       </tbody>
     </table>
+    
   </div>
 
-<script type="text/javascript">
-	
-	document.getElementById("ssBtn").onclick = function() {
-		alert("JS is working")
-		};
-</script>
+ <script type="text/javascript" src="../js/dashboard.js"></script>

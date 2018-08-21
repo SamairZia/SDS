@@ -17,12 +17,8 @@
         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#patientModal" id="myBtn">
           <i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add Patient</button>
         </div>
-        <div class="col-sm-4 col-md-8 col-lg-4">
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Search patient..." aria-describedby="basic-addon2"><button class="btn btn-info" type="button" id="searchPatient"><i class="fa fa-search fa-fw" aria-hidden="true"></i></button>
-        </div>
-        </div>
       </div>
+      <br />
       
       <!-- success alert afetr submitting Add Patient from modal -->
       <!-- The Modal -->
@@ -193,27 +189,27 @@
             <form id="add-patient" >
               <div class="row">
                 <div class="col-sm-3"><label class="lab">Date:</label></div>
-                <div class="col-sm-6"><input class="form-control" type="date" name="pdate" id="pdate"/></div>
+                <div class="col-sm-8 col-md-8 col-lg-6"><input class="form-control" type="date" name="pdate" id="pdate"/></div>
               </div>
               <div class="row">
                 <div class="col-sm-3"><label class="lab">Name:</label></div>
-                <div class="col-sm-6"><input class="form-control" type="text" name="name" id="name"/></div>
+                <div class="col-sm-8 col-md-8 col-lg-6"><input class="form-control" type="text" name="name" id="name"/></div>
               </div>
               <div class="row">
                 <div class="col-sm-3"><label class="lab">Parent Name:</label></div>
-                <div class="col-sm-6"><input class="form-control" type="text" name="pname" id="pname"/></div>
+                <div class="col-sm-8 col-md-8 col-lg-6"><input class="form-control" type="text" name="pname" id="pname"/></div>
               </div>
               <div class="row">
                 <div class="col-sm-3"><label class="lab">House Address:</label></div>
-                <div class="col-sm-6"><input class="form-control" type="text" name="houseAddress" id="houseAddress"/></div>
+                <div class="col-sm-8 col-md-8 col-lg-6"><input class="form-control" type="text" name="houseAddress" id="houseAddress"/></div>
               </div>
               <div class="row">
                 <div class="col-sm-3"><label class="lab">Work Address:</label></div>
-                <div class="col-sm-6"><input class="form-control" type="text" name="workAddress" id="workAddress"/></div>
+                <div class="col-sm-8 col-md-8 col-lg-6"><input class="form-control" type="text" name="workAddress" id="workAddress"/></div>
               </div>
               <div class="row">
                 <div class="col-sm-3"><label class="lab">Marital Status:</label></div>
-                <div class="col-sm-6">
+                <div class="col-sm-8 col-md-8 col-lg-6">
                     <!-- <input class="form-control" type="text" name="mstatus" id="mstatus"/> -->
                 <select class="custom-select" name="mstatus" id="mstatus">
                   <option selected>Select...</option>
@@ -223,15 +219,15 @@
               </div>
               <div class="row">
                 <div class="col-sm-3"><label class="lab">Occupation:</label></div>
-                <div class="col-sm-6"><input class="form-control" type="text" name="occupation" id="occupation"/></div>
+                <div class="col-sm-8 col-md-8 col-lg-6"><input class="form-control" type="text" name="occupation" id="occupation"/></div>
               </div>
               <div class="row">
                 <div class="col-sm-3"><label class="lab">Tel:</label></div>
-                <div class="col-sm-6"><input class="form-control" type="tel" name="tel" id="telNo"/></div>
+                <div class="col-sm-8 col-md-8 col-lg-6"><input class="form-control" type="tel" name="tel" id="telNo"/></div>
               </div>
               <div class="row">
                 <div class="col-sm-3"><label class="lab">Reference:</label></div>
-                <div class="col-sm-6"><input class="form-control" type="text" name="reference" id="reference"/></div>
+                <div class="col-sm-8 col-md-8 col-lg-6"><input class="form-control" type="text" name="reference" id="reference"/></div>
               </div>
               <div class="row">              
               <div class="col-sm-2">Age:<input class="form-control" type="text" name="age" id="age"/></div>
@@ -306,3 +302,6 @@
     </div>
   </div>
 </div>
+
+
+<script type="text/javascript" src="../js/patient.js"></script>
