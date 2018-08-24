@@ -23,14 +23,17 @@ app.set('view engine', '.hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized:true })); // session secret
+app.use(session({
+	secret: 'keyboard cat', // session secret
+	resave: true,
+	saveUninitialized:true })); 
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(bodyParser.json());
-	app.use(bodyParser.urlencoded(
-	{
+app.use(bodyParser.urlencoded({
 		extended: true
-	}));
+}));
+
 //sync models
 models.sequelize.sync()
 	.then(function(){		
