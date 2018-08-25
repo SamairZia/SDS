@@ -108,7 +108,7 @@ formSubmitAddPatient.onsubmit = function(e) {
         
         var xhttp = new XMLHttpRequest();
 
-        xhttp.open("POST" , "patients/add" , true);
+        xhttp.open("POST" , "patient/add" , true);
         xhttp.setRequestHeader("Content-type", "application/json");     
         xhttp.send(JSON.stringify(infoPatient));
         xhttp.onreadystatechange = function(){
