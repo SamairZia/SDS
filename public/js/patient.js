@@ -123,3 +123,6 @@ formSubmitAddPatient.onsubmit = function(e) {
         return true;
     }	
 }
+
+//setting date in date field
+document.getElementById("pdate").valueAsDate = new Date();
