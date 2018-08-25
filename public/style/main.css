@@ -2,6 +2,12 @@ body {
     background-color: #F7F7F7; /* #f0eeec */
 }
 
+.form-control:focus {
+    outline: none;
+    box-shadow: none !important;
+    border: 1px solid #CECECE;
+}
+
 /* Style page content */
 .dashboard{
     display: block;
