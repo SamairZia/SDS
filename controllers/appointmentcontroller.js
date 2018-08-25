@@ -31,7 +31,6 @@ exports.addAppointment = function(req, res, next){
 		res.send({
 			status: 'OK',
 		});
-		res.end();
 	}).catch(function (err){
 		//rollback
 		console.log(err)
@@ -65,7 +64,6 @@ exports.getAppNo = function(req, res, next){
 			res.json({
 				appNo: appNo
 			});
-			res.end();			
 		})
 		.catch(function(error){
 			console.log(error)

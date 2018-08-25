@@ -121,7 +121,6 @@ exports.addPatient = function(req,res,next){
 		res.send({
 			status: 'OK',
 		});
-		res.end();
 	}).catch(function (err){
 		//rollback
 		console.log(err)
@@ -154,7 +153,6 @@ exports.getPatientName = function(req,res,next){
 				exists : ifExists
 			});
 		}
-		res.end();
 	})
 	.catch(function(error){
 		console.log(error)
@@ -171,7 +169,6 @@ exports.getPatientAll = function(req,res,next){
 		res.json({
 			patient: patient
 		})
-		res.end()
 	})
 	.catch(function(error){
 		console.log(error);
