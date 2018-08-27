@@ -4,7 +4,7 @@ var submitAddPatient = document.getElementById('btnSubmitAddPatient');
 var successAddPatient = document.getElementById('successModal');
 var closeModalAddPatient = document.getElementById('myModal');
 
-formSubmitAddPatient.onsubmit = function(e) {
+formSubmitAddPatient.onsubmit = function(event) {
 	var pdate			= document.getElementById('pdate').value;
 	var name 			= document.getElementById('name').value;
     var pname 			= document.getElementById('pname').value;
@@ -58,9 +58,48 @@ formSubmitAddPatient.onsubmit = function(e) {
     var pregnancy 				= document.getElementById('pregnancy').checked;
     var breastFeeding 			= document.getElementById('breastFeeding').checked;
 
-    e.preventDefault();
-    if(name == "" || pname == "" || houseAddress == "" || occupation == "" || tel == "" || age == "" || regNo == ""){
-        alert("Please fill out all the fields.");
+    event.preventDefault();
+
+    if(pdate == ""){
+        document.getElementById('pdate').style.backgroundColor = "#FEECEC";
+        document.getElementById('pdate').style.border = "1px solid red";
+        document.getElementById('pdateError').innerHTML = "Required field";
+        document.getElementById('pdate').focus();
+        return false;
+    }
+    if(regNo == ""){
+        document.getElementById('regNo').style.backgroundColor = "#FEECEC";
+        document.getElementById('regNo').style.border = "1px solid red";
+        document.getElementById('regNoError').innerHTML = "Required field";
+        document.getElementById('regNo').focus();
+        return false;
+    }
+    if(name == ""){
+        document.getElementById('name').style.backgroundColor = "#FEECEC";
+        document.getElementById('name').style.border = "1px solid red";
+        document.getElementById('nameError').innerHTML = "Required field"
+        document.getElementById('name').focus();
+        return false;
+    }
+    if(tel == ""){
+        document.getElementById('telNo').style.backgroundColor = "#FEECEC";
+        document.getElementById('telNo').style.border = "1px solid red";
+        document.getElementById('telError').innerHTML = "Required field";
+        document.getElementById('telNo').focus();
+        return false;
+    }
+    if(age == ""){
+        document.getElementById('age').style.backgroundColor = "#FEECEC";
+        document.getElementById('age').style.border = "1px solid red";
+        document.getElementById('ageError').innerHTML = "Required field";
+        document.getElementById('age').focus();
+        return false;
+    }
+    if(sex.selectedIndex == 0){
+        document.getElementById('sex').style.backgroundColor = "#FEECEC";
+        document.getElementById('sex').style.border = "1px solid red";
+        document.getElementById('sexError').innerHTML = "Required field";
+        document.getElementById('sex').focus();
         return false;
     }
 	else {
@@ -115,14 +154,41 @@ formSubmitAddPatient.onsubmit = function(e) {
             if (this.readyState == 4 && this.status == 200){
                 alert("Submitted");
                 formSubmitAddPatient.reset(); //Reset Form after submitting
-            }
-            else {
-                alert('Something Wrong')
+                document.getElementById("pdate").valueAsDate = new Date(); //setting date afetr reset
             }
         };
         return true;
     }	
+
 }
 
-//setting date in date field
+//setting date in date field when modal load
 document.getElementById("pdate").valueAsDate = new Date();
+
+
+//onfocusout function for reseting form fields
+function regNoDefault() {
+        document.getElementById('regNo').style.backgroundColor = "white";
+        document.getElementById('regNo').style.border = "1px solid #CECECE";
+        document.getElementById('regNoError').innerHTML = ""
+}
+function nameDefault() {
+    document.getElementById('name').style.backgroundColor = "white";
+    document.getElementById('name').style.border = "1px solid #CECECE";
+    document.getElementById('nameError').innerHTML = ""
+}
+function tellDefault() {
+    document.getElementById('telNo').style.backgroundColor = "white";
+    document.getElementById('telNo').style.border = "1px solid #CECECE";
+    document.getElementById('telError').innerHTML = ""
+}
+function ageDefault() {
+    document.getElementById('age').style.backgroundColor = "white";
+    document.getElementById('age').style.border = "1px solid #CECECE";
+    document.getElementById('ageError').innerHTML = ""
+}
+function sexDefault() {
+    document.getElementById('sex').style.backgroundColor = "white";
+    document.getElementById('sex').style.border = "1px solid #CECECE";
+    document.getElementById('sexError').innerHTML = ""
+}

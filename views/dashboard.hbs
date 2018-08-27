@@ -56,7 +56,20 @@
         </tr>
       </tbody>
     </table>
-    
+    {{!-- <input type="tel" name="number" id="some" onChange="addhyphen();"> --}}
+
+<hr>
+
   </div>
 
  <script type="text/javascript" src="../js/dashboard.js"></script>
+ <script type="text/javascript" >
+ 
+function addhyphen()
+{
+      str = document.getElementById('some').value;
+      str = str.substring(0,4) + "-" + str.substring(4,str.length);
+      document.getElementById('some').value = str;
+}
+
+</script>

@@ -189,11 +189,26 @@
             <form id="add-patient" >
               <div class="row">
                 <div class="col-sm-3"><label class="lab">Date:</label></div>
-                <div class="col-sm-8 col-md-8 col-lg-6"><input class="form-control" type="date" name="pdate" id="pdate"/></div>
+                <div class="col-sm-8 col-md-8 col-lg-6"><input class="form-control" type="date" name="pdate" id="pdate" /></div>
+                <small id="dateError" class="text-danger"></small>
               </div>
               <div class="row">
+                <div class="col-sm-3"><label class="lab">Reg No:</label></div>
+                <div class="col-sm-8 col-md-8 col-lg-6">
+                  <div class="input-group">
+                  <input class="form-control" onfocusout="return regNoDefault()" type="text" name="regNo" id="regNo"/>
+                  <div class="input-group-append">
+                    <button class="btn btnRefresh" id="regNoRefresh" type="button" data-toggle="tooltip" title="Refresh Reg No"><i class="fa fa-refresh"></i></button>
+                  </div>
+                  </div>
+                </div>
+                <small id="regNoError" class="text-danger pt-2"></small>
+              </div>
+
+              <div class="row">
                 <div class="col-sm-3"><label class="lab">Name:</label></div>
-                <div class="col-sm-8 col-md-8 col-lg-6"><input class="form-control" type="text" name="name" id="name"/></div>
+                <div class="col-sm-8 col-md-8 col-lg-6"><input class="form-control" onfocusout="return nameDefault()" type="text" name="name" id="name"/></div>
+                <small id="nameError" class="text-danger pt-2"></small>
               </div>
               <div class="row">
                 <div class="col-sm-3"><label class="lab">Parent Name:</label></div>
@@ -223,23 +238,26 @@
               </div>
               <div class="row">
                 <div class="col-sm-3"><label class="lab">Tel:</label></div>
-                <div class="col-sm-8 col-md-8 col-lg-6"><input class="form-control" type="tel" name="tel" id="telNo"/></div>
+                <div class="col-sm-8 col-md-8 col-lg-6">
+                  <input class="form-control" onfocusout="return tellDefault()" type="tel" name="tel" id="telNo" /></div>
+                <small id="telError" class="text-danger pt-2"></small>
               </div>
               <div class="row">
                 <div class="col-sm-3"><label class="lab">Reference:</label></div>
                 <div class="col-sm-8 col-md-8 col-lg-6"><input class="form-control" type="text" name="reference" id="reference"/></div>
               </div>
               <div class="row">              
-              <div class="col-sm-2">Age:<input class="form-control" type="text" name="age" id="age"/></div>
+              <div class="col-sm-2">Age:<input class="form-control" onfocusout="return ageDefault()" type="text" name="age" id="age" /></div>
+              <small id="ageError" class="text-danger pt-4"></small>
               <div class="col-sm-1"></div>
-              <div class="col-sm-2">Sex:<select class="custom-select" name="sex" id="sex">
-                  <option selected>Select...</option>
+              <div class="col-sm-2">Sex:<select class="custom-select" onfocusout="return sexDefault()" name="sex" id="sex">
+                  <option value="0" selected>Select...</option>
                   <option value="M">M</option>
                   <option value="F">F</option>
                 </select></div>
-                <!-- <input class="form-control" type="text" placeholder="M/F" name="sex" id="sex"/> -->
+                <small id="sexError" class="text-danger pt-2"></small>
               <div class="col-sm-1"></div>
-              <div class="col-sm-2">Reg. No.<input class="form-control" type="text" name="regNo" id="regNo"/></div>
+              {{!-- <div class="col-sm-2">Reg. No.<input class="form-control" type="text" name="regNo" id="regNo" /></div> --}}
               </div>
               <hr>
               <h5>Patient Health Questionnaire</h5>
@@ -302,6 +320,5 @@
     </div>
   </div>
 </div>
-
 
 <script type="text/javascript" src="../js/patient.js"></script>

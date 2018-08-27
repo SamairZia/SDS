@@ -31,10 +31,6 @@ formSubmitAddAppointment.onsubmit = function(e) {
 			if (this.readyState == 4 && this.status == 200){
 				alert("Submitted");
 			}
-			else
-			{
-				alert('something wronmg')
-			}
 		};
 		return true;
 	}
