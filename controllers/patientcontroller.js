@@ -7,7 +7,6 @@ var models = require("../models"),
 	PatientHealth = models.patienthealth,
 	PatientHealthFamily = models.patienthealthfamily;
 	
-	
 exports.patient = function(req, res, next){
 	res.render('patient', {
 		titlePage: 'SDS | Patients'
@@ -22,13 +21,6 @@ exports.addPatient = function(req,res,next){
 	var reqQAFamily = []; //stores object names for patientqafamily
 	var dataForPatientQA = []; //creates and store data for the bulk creation of data for patientqa
 	var dataForPatientQAFamily = []; //creates and store data for the bulk creation of data for patientqafamily
-	
-	//request object is returned as [Object Object] so this is used to parse
-	//uncomment the code below to use
-	
-	//const util = require('util');	//uncomment this for logging
-	//console.log(`post/${util.inspect(req.body,false,null)}`);
-
 	
 	//checkboxes are QA stuff
 	//pushes object names checking which checkboxes are true OR 'on'
@@ -172,6 +164,39 @@ exports.getPatientAll = function(req,res,next){
 	})
 	.catch(function(error){
 		console.log(error);
+	})
+}
+
+exports.getRegNo = function(req,res,next){
+	
+	Patient.findOne({
+		attributes : [
+			[sequelize.fn('max', sequelize.col('regno')), 'regno'],'name'
+		],
+		raw:true
+	})
+	.then(function(patient){
+		console.log("Patient object is " ,patient);
+		//console.log(JSON.stringify(patient, null, 4));
+		let regNo = 0;
+		if(patient.regno!=null){
+			regNo = patient.regno;	
+			regNo = regNo + 1;
+			console.log("Regno number is "+regNo);
+			res.json({
+				regNo: regNo
+			});
+		}
+		else
+			res.json({
+				error:"weird"
+			})
+	})
+	.catch(function(error){
+		console.log(error);
+		res.status(500).json({
+			error : "db error"
+		});
 	})
 }
 	
