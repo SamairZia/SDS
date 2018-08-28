@@ -55,8 +55,8 @@ exports.getAppNo = function(req, res, next){
 			let appNo = 0;
 			if (appointment.appno != null){
 				appNo = appointment.appno;
-				console.log("App object is "+appointment.get({
-					plain:true
+				console.log("App object is ",appointment.get({
+					raw:true
 				}));
 			}
 			appNo = appNo + 1;
@@ -67,6 +67,9 @@ exports.getAppNo = function(req, res, next){
 		})
 		.catch(function(error){
 			console.log(error)
+			res.status(500).json({
+				error : "db error"
+			})
 		})
 	}
 	
