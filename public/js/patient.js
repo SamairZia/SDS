@@ -192,3 +192,22 @@ function sexDefault() {
     document.getElementById('sex').style.border = "1px solid #CECECE";
     document.getElementById('sexError').innerHTML = ""
 }
+
+function refreshRegNo() {
+    alert('up')
+    var xhttpRegNo = new XMLHttpRequest();
+	var regNo = document.getElementById('regNo').value;
+    xhttpRegNo.open("GET", "patient/getregno/");
+    alert('down' + regNo)    
+	xhttpRegNo.onload = function(){
+		alert("Reg number triggered");
+		console.log(xhttpRegNo.responseText);
+		var myObj = JSON.parse(xhttpRegNo.responseText);
+		document.getElementById('name').value = myObj.regNo;
+		//  document.getElementById('patientName').value = myObj.patientName;         
+    }; 
+    xhttpRegNo.send();
+}
+$(document).ready(function(){
+    $('#patientTable').DataTable();
+});
