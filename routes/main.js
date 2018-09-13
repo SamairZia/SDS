@@ -1,4 +1,4 @@
-module.exports = function(express, app, passport)
+	module.exports = function(express, app, passport)
 {
 	var router = express.Router(),
 		dashboardcontroller = require('../controllers/dashboardcontroller.js')
@@ -9,8 +9,12 @@ module.exports = function(express, app, passport)
 		{
 			res.redirect('/main/dashboard');
 		}
-		else
-			res.render('index',{titlePage: 'Welcome to Shakir Dental Clinic', layout:false});
+		else {
+			res.render('index',{
+				titlePage: 'Welcome to Shakir Dental Clinic',
+				layout:false
+			});
+		}
 	})
 	
 	router.get('/logout', function (req, res, next)
@@ -18,7 +22,7 @@ module.exports = function(express, app, passport)
 		req.logout();
 		res.redirect('/');
 	})
-	
+
 	router.get('/signup', dashboardcontroller.signup)
 	
 	router.post('/signup', passport.authenticate('local-signup', 
