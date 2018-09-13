@@ -8,10 +8,42 @@ formSubmitAddAppointment.onsubmit = function(e) {
 	var appTime = document.getElementById('appTime').value;
 	var comments = document.getElementById('comments').value;
 	var date = document.getElementById('appointmentDate').value;
+
 	e.preventDefault();
-	if(appointmentNo == "" || pRegNoApp == "" || patientName == "" || appTime == ""){
-	   alert("Please fill out all the fields.")
-	   return false;
+	if(pRegNoApp == ""){
+		document.getElementById('pRegNoApp').style.backgroundColor = "#FEECEC";
+        document.getElementById('pRegNoApp').style.border = "1px solid red";
+        document.getElementById('regNoAppError').innerHTML = "Required field";
+        document.getElementById('pRegNoApp').focus();
+		return false;		
+	}
+	if(appointmentNo == ""){
+		document.getElementById('appointmentNo').style.backgroundColor = "#FEECEC";
+        document.getElementById('appointmentNo').style.border = "1px solid red";
+        document.getElementById('appNoError').innerHTML = "Required field";
+        document.getElementById('appointmentNo').focus();
+		return false;
+	}
+	if(patientName == ""){
+		document.getElementById('patientName').style.backgroundColor = "#FEECEC";
+        document.getElementById('patientName').style.border = "1px solid red";
+        document.getElementById('pNameAppError').innerHTML = "Required field";
+        document.getElementById('patientName').focus();
+		return false;		
+	}
+	if(appTime == ""){
+		document.getElementById('appTime').style.backgroundColor = "#FEECEC";
+        document.getElementById('appTime').style.border = "1px solid red";
+        document.getElementById('timeAppError').innerHTML = "Required field";
+        document.getElementById('appTime').focus();
+		return false;
+	}
+	if(date == ""){
+		document.getElementById('appointmentDate').style.backgroundColor = "#FEECEC";
+        document.getElementById('appointmentDate').style.border = "1px solid red";
+        document.getElementById('dateAppError').innerHTML = "Required field";
+        document.getElementById('appointmentDate').focus();
+		return false;		
 	}
 	else {
 		var infoAppointment = { 
@@ -30,10 +62,8 @@ formSubmitAddAppointment.onsubmit = function(e) {
 		xhttpAppointment.onreadystatechange = function(){
 			if (this.readyState == 4 && this.status == 200){
 				alert("Submitted");
-			}
-			else
-			{
-				alert('something wronmg')
+				formSubmitAddAppointment.reset(); //Reset Form after submitting
+				document.getElementById("appointmentDate").valueAsDate = new Date(); //setting date in date field
 			}
 		};
 		return true;
@@ -42,12 +72,26 @@ formSubmitAddAppointment.onsubmit = function(e) {
    //moved code at the bottom
 }
 
-//Setting curremt date in Add Apointment modal
-//  var myDate =  new Date().toISOString().substr(0,10);
-//  document.getElementById('me').value = myDate;
-
 //setting date in date field
 document.getElementById("appointmentDate").valueAsDate = new Date();
+
+
+//onfocusout function for reseting form fields
+function pRegNoAppDefault() {
+    document.getElementById('pRegNoApp').style.backgroundColor = "white";
+    document.getElementById('pRegNoApp').style.border = "1px solid #CECECE";
+    document.getElementById('regNoAppError').innerHTML = ""
+}
+function appointmentDateDefault() {
+    document.getElementById('appointmentDate').style.backgroundColor = "white";
+    document.getElementById('appointmentDate').style.border = "1px solid #CECECE";
+    document.getElementById('dateAppError').innerHTML = ""
+}
+function appTimeDefault() {
+    document.getElementById('appTime').style.backgroundColor = "white";
+    document.getElementById('appTime').style.border = "1px solid #CECECE";
+    document.getElementById('timeAppError').innerHTML = ""
+}
 
 
 //Chunk from AddAppointmnet stuff
@@ -64,7 +108,7 @@ function loadAppNo() {
 	var pRegNoApp = document.getElementById('pRegNoApp').value;
 	xhtp.open("GET", "appointment/getAppNo/" +pRegNoApp);
 	xhtp.onload = function(){
-		alert("App number triggered");
+		//alert("App number triggered");
 		console.log(xhtp.responseText);
 		var myObj = JSON.parse(xhtp.responseText);
 		document.getElementById('appointmentNo').value = myObj.appNo;

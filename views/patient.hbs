@@ -1,179 +1,219 @@
+  
   <!-- Patient content -->
   <div id="divPatient" class="patient">
     <h1 class="marqueecolor">Patient</h1>
-      <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add Patient</button> -->
-      <!-- OWN model stuff starts -->
-      <!-- Trigger/Open The Modal -->
-      <div class="row">
-        <!-- <div class="d-flex justify-content-between">
-          <div>
-        <button type="button" class="btn btn-danger" id="myBtn"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add Patient</button>
-          </div>
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Search patient..." ><button class="btn btn-info" type="button" id="searchPatient"><i class="fa fa-search fa-fw" aria-hidden="true"></i></button>
-          </div>
-        </div> -->
-        <div class="col-sm-4">
-        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#patientModal" id="myBtn">
-          <i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add Patient</button>
-        </div>
-      </div>
-      <br />
-      
-      <!-- success alert afetr submitting Add Patient from modal -->
-      <!-- The Modal -->
-      <div id="successModal" class="modalSuccessModal">
-        <!-- Modal content -->
-        <div class="modal-contentSuccessModal">
-        <span class="closeSuccessModal">&times;</span>
-        <div class="alert alert-success" style="margin-right: 20px" role="alert">
-          <strong> You have succesfully added patient :p </strong>
-        </div>
-        </div>
-      </div>
+    
+<div class="row">
+  <div class="col-sm-4">
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#patientModal" id="myBtn">
+      <i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add Patient</button>
+  </div>
+</div>
+<br />
 
-      <!-- Search Result data -->
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-header">
-              <b>Patient's Personal History</b>
-            </div>
-            <div class="card-body" id="searchResultPersonalHistory" >
-              <table class="table table-borderless">
-                <thead class="">
-                  
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">Name</th>
-                    <td>samair</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Reg No.</th>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Parent Name</th>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">House Address</th>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Work Address</th>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Marital Status</th>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Occupation</th>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Tel</th>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Reference</th>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Age</th>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Sex</th>
-                    <td></td>
-                  </tr>
-                  <tr class="thead-light">
-                    <th colspan="2" >Health History</th>
-                  </tr>
-                  <tr>
-                    <th scope="row">Problem 1</th>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Problem 2</th>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-      
+<!-- success alert afetr submitting Add Patient from modal -->
+<!-- The Modal -->
+<div id="successModal" class="modalSuccessModal">
+  <!-- Modal content -->
+  <div class="modal-contentSuccessModal">
+    <span class="closeSuccessModal">&times;</span>
+    <div class="alert alert-success" style="margin-right: 20px" role="alert">
+      <strong> You have succesfully added patient :p </strong>
     </div>
-    <div class="col-sm-5">
-      <div class="row">
-      <div class="col-sm-12">        
-      <div class="card">
-        <div class="card-header ">
-          <b>Appointment History</b>
-        </div>
-        <div class="card-body" id="searchResultAppointment">          
-          <table class="table">
-            <thead>
+  </div>
+</div>
 
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">Appointmnet No.</th>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row">Date</th>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row">Time</th>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row">Comments</th>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      </div><!--inner col-sm div close-->
-      </div> <!-- inner row div close-->
-      <br>
-      <div class="row">
-      <div class="col-sm-12">        
-      <div class="card">
-        <div class="card-header">
-          <b>Treatment History</b>
-        </div>
-        <div class="card-body" id="searchResultTreatment">          
-          <table class="table">
-            <thead>
-
-            </thead>
-            <tbody>
-              <tr>
-                <td scope="row">Appointmnet No.</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td scope="row">Treatment Details</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td scope="row">Total Cost</td>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        </div>
-        </div><!--inner col-sm div close-->
-        </div> <!-- inner row div close-->
-    </div> <!-- col-sm-5 div close -->
-    </div> <!--Row div close -->
+<table class="table table-bordered table-striped table-responsive-sm" id="patientTable">
+  <thead class="thead-dark">
+    <tr>
+      <th>Patient Name</th>
+      <th>Registration No</th>
+      <th>Appointments</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
 
 <!-- Modal -->
 <div class="modal fade" id="patientModal" tabindex="-1" role="dialog" aria-labelledby="patientModalLabel" aria-hidden="true">
@@ -189,11 +229,26 @@
             <form id="add-patient" >
               <div class="row">
                 <div class="col-sm-3"><label class="lab">Date:</label></div>
-                <div class="col-sm-8 col-md-8 col-lg-6"><input class="form-control" type="date" name="pdate" id="pdate"/></div>
+                <div class="col-sm-8 col-md-8 col-lg-6"><input class="form-control" type="date" name="pdate" id="pdate" /></div>
+                <small id="dateError" class="text-danger"></small>
               </div>
               <div class="row">
+                <div class="col-sm-3"><label class="lab">Reg No:</label></div>
+                <div class="col-sm-8 col-md-8 col-lg-6">
+                  <div class="input-group">
+                  <input class="form-control" onfocusout="return regNoDefault()" type="text" name="regNo" id="regNo"/>
+                  <div class="input-group-append">
+                    <button class="btn btnRefresh" id="regNoRefresh" onclick="return refreshRegNo()" type="button" data-toggle="tooltip" title="Refresh Reg No"><i class="fa fa-refresh"></i></button>
+                  </div>
+                  </div>
+                </div>
+                <small id="regNoError" class="text-danger pt-2"></small>
+              </div>
+
+              <div class="row">
                 <div class="col-sm-3"><label class="lab">Name:</label></div>
-                <div class="col-sm-8 col-md-8 col-lg-6"><input class="form-control" type="text" name="name" id="name"/></div>
+                <div class="col-sm-8 col-md-8 col-lg-6"><input class="form-control" onfocusout="return nameDefault()" type="text" name="name" id="name"/></div>
+                <small id="nameError" class="text-danger pt-2"></small>
               </div>
               <div class="row">
                 <div class="col-sm-3"><label class="lab">Parent Name:</label></div>
@@ -223,23 +278,26 @@
               </div>
               <div class="row">
                 <div class="col-sm-3"><label class="lab">Tel:</label></div>
-                <div class="col-sm-8 col-md-8 col-lg-6"><input class="form-control" type="tel" name="tel" id="telNo"/></div>
+                <div class="col-sm-8 col-md-8 col-lg-6">
+                  <input class="form-control" onfocusout="return tellDefault()" type="tel" name="tel" id="telNo" /></div>
+                <small id="telError" class="text-danger pt-2"></small>
               </div>
               <div class="row">
                 <div class="col-sm-3"><label class="lab">Reference:</label></div>
                 <div class="col-sm-8 col-md-8 col-lg-6"><input class="form-control" type="text" name="reference" id="reference"/></div>
               </div>
               <div class="row">              
-              <div class="col-sm-2">Age:<input class="form-control" type="text" name="age" id="age"/></div>
+              <div class="col-sm-2">Age:<input class="form-control" onfocusout="return ageDefault()" type="text" name="age" id="age" /></div>
+              <small id="ageError" class="text-danger pt-4"></small>
               <div class="col-sm-1"></div>
-              <div class="col-sm-2">Sex:<select class="custom-select" name="sex" id="sex">
-                  <option selected>Select...</option>
+              <div class="col-sm-2">Sex:<select class="custom-select" onfocusout="return sexDefault()" name="sex" id="sex">
+                  <option value="0" selected>Select...</option>
                   <option value="M">M</option>
                   <option value="F">F</option>
                 </select></div>
-                <!-- <input class="form-control" type="text" placeholder="M/F" name="sex" id="sex"/> -->
+                <small id="sexError" class="text-danger pt-2"></small>
               <div class="col-sm-1"></div>
-              <div class="col-sm-2">Reg. No.<input class="form-control" type="text" name="regNo" id="regNo"/></div>
+              {{!-- <div class="col-sm-2">Reg. No.<input class="form-control" type="text" name="regNo" id="regNo" /></div> --}}
               </div>
               <hr>
               <h5>Patient Health Questionnaire</h5>
@@ -303,5 +361,5 @@
   </div>
 </div>
 
-
 <script type="text/javascript" src="../js/patient.js"></script>
+<script type="text/javascript" src="../js/datatables.min.js"></script>

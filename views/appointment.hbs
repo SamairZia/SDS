@@ -21,23 +21,28 @@
           <form id="add-appointment" method="POST" action = "/patient/add"><br/>
             <div class="row">
               <div class="col-sm-4"><label class="lab">Reg. No:</label></div>
-              <div class="col-sm-6 col-md-8 col-lg-6"><input class="form-control" type="int" name="pRegNoApp" id="pRegNoApp" /></div>
+              <div class="col-sm-6 col-md-8 col-lg-6"><input class="form-control" onfocusout="return pRegNoAppDefault()" type="int" pattern="\d*" title="Numbers Only" name="pRegNoApp" id="pRegNoApp" /></div>
+              <small id="regNoAppError" class="text-danger pt-2"></small>
             </div>
             <div class="row">
               <div class="col-sm-4"><label class="lab">Appointment No:</label></div>
               <div class="col-sm-6 col-md-8 col-lg-6"><input class="form-control" type="int" name="appointmentNo" id="appointmentNo" readonly/></div>
+              <small id="appNoError" class="text-danger pt-2"></small>
             </div>
             <div class="row">
               <div class="col-sm-4"><label class="lab">Date:</label></div>
-              <div class="col-sm-6 col-md-8 col-lg-6"><input class="form-control" type="date" name="appointmentDate" id="appointmentDate"/></div>
+              <div class="col-sm-6 col-md-8 col-lg-6"><input class="form-control" onfocusout="return appointmentDateDefault()" type="date" name="appointmentDate" id="appointmentDate"/></div>
+              <small id="dateAppError" class="text-danger pt-2"></small>
             </div>
             <div class="row">
               <div class="col-sm-4"><label class="lab">Patient Name:</label></div>
               <div class="col-sm-6 col-md-8 col-lg-6"><input class="form-control" type="text" name="patientName" id="patientName" readonly/></div>
+              <small id="pNameAppError" class="text-danger pt-2"></small>
             </div>
             <div class="row">
               <div class="col-sm-4"><label class="lab">Time:</label></div>
-              <div class="col-sm-6 col-md-8 col-lg-6"><input class="form-control" type="text" name="appTime" id="appTime"/></div>
+              <div class="col-sm-6 col-md-8 col-lg-6"><input class="form-control" onfocusout="return appTimeDefault()" type="text" pattern="[^a-zA-Z'?&%$#@()}{><.,|*;]+" title="Enter numeric values only." name="appTime" id="appTime"/></div>
+              <small id="timeAppError" class="text-danger pt-2"></small>
             </div>
             <div class="row">
               <div class="col-sm-4"><label class="lab">Comments:</label></div>

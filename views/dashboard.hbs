@@ -1,62 +1,82 @@
 <!-- Dashboard content -->
-  <div id="divDashboard" class="dashboard">
+<div id="divDashboard" class="dashboard">
     <!-- <h1 class="marqueecolor">Dashboard</h1> --><br/>
     {{!-- <marquee><h2 class="marqueeColor">Shakir Dental Surgery</h2></marquee><hr/> --}}
     
-    <div class="row">
-      <div class="col-sm-4 col-md-4 col-lg-3">
-        <div class="card text-white bg-info o-hidden">
-          <div class="card-body">
-              <i class="fa fa-4x fa-comments float-right"></i>
-            <div class="mr-5">Total Appointments!</div>
-          </div>
-        </div>
-            <br class="d-block d-sm-block d-md-none"/>
+<div class="row">
+  <div class="col-sm-4 col-md-4 col-lg-3">
+    <div class="card text-white bg-info o-hidden">
+      <div class="card-body">
+        <i class="fa fa-4x fa-comments float-right"></i>
+        <div class="mr-5">Total Appointments!</div>
       </div>
-      
-      <div class="col-sm-4 col-md-4 col-lg-3">
-        <div class="card text-white bg-info o-hidden">
-          <div class="card-body">
-            <i class="fa fa-4x fa-users float-right"></i>
-          <div class="mr-5">Total Patients!</div>
-          </div>
-        </div>
-        <br class="d-block d-sm-block d-md-none"/>
+    </div>
+    <br class="d-block d-sm-block d-md-none" />
+  </div>
+
+  <div class="col-sm-4 col-md-4 col-lg-3">
+    <div class="card text-white bg-info o-hidden">
+      <div class="card-body">
+        <i class="fa fa-4x fa-users float-right"></i>
+        <div class="mr-5">Total Patients!</div>
       </div>
-    <div class="col-sm-4 col-md-4 col-lg-3">
-      <div class="card text-white bg-danger o-hidden">
-        <div class="card-body">
-          <i class="fa fa-4x fa-money float-right"></i>
+    </div>
+    <br class="d-block d-sm-block d-md-none" />
+  </div>
+  <div class="col-sm-4 col-md-4 col-lg-3">
+    <div class="card text-white bg-danger o-hidden">
+      <div class="card-body">
+        <i class="fa fa-4x fa-money float-right"></i>
         <div class="mr-5">Dues Pending!</div>
-        </div>
       </div>
     </div>
   </div>
+</div>
     
     <br/>
-    <div class="row">
-      <div class="col-sm-3"><h4>Appointments Today</h4></div>
-      <div class="col-sm-3"><h4 id="dashDate"></h4></div>
-    </div><br/>
-    <table class="table table-bordered w-50">
-      <thead class="headerFooterColor">
-        <tr>
-          <th>Patient's Name</th>
-          <th>Appointment Time</th>
-        </tr>
-      </thead>
-      <tbody style="background-color: white">
-        <tr>
-          <td>{{user.username}}</td>
-          <td>{{user.email}}</td>
-        </tr>
-        <tr>
-          <td>Eve</td>
-          <td>Jackson</td>
-        </tr>
-      </tbody>
-    </table>
-    
+<div class="row">
+  <div class="col-sm-3">
+    <h4>Appointments Today</h4>
   </div>
+  <div class="col-sm-3">
+    <h4 id="dashDate"></h4>
+  </div>
+</div><br/>
+<table class="table table-bordered">
+  <thead class="headerFooterColor">
+    <tr>
+      <th>Time</th>
+      <th>Patient Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody style="background-color: white">
+    <tr>
+      <td>{{user.username}}</td>
+      <td>{{user.email}}</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>3:00 PM</td>
+      <td>Someone</td>
+      <td>Something Something .</td>
+    </tr>
+  </tbody>
+</table>
+{{!-- <input type="tel" name="number" id="some" onChange="addhyphen();"> --}}
+
+<hr>
+
+</div>
 
  <script type="text/javascript" src="../js/dashboard.js"></script>
+ <script type="text/javascript" >
+ 
+function addhyphen()
+{
+      str = document.getElementById('some').value;
+      str = str.substring(0,4) + "-" + str.substring(4,str.length);
+      document.getElementById('some').value = str;
+}
+
+</script>
